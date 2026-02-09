@@ -50,7 +50,14 @@ class CNF_Media_Uploader {
      * Uploads all media files defined in schema.
      */
     public function upload_all() {
-        $media_items = isset($this->schema['media']) ? $this->schema['media'] : array();
+        $media_items = isset($this->schema['mediaLibrary']) ? $this->schema['mediaLibrary'] : array();
+
+        if (empty($media_items)) {
+            error_log('CNF Setup: No media items found in schema (this is optional)');
+            return true;
+        }
+
+        error_log('CNF Setup: Found ' . count($media_items) . ' media items to upload');
 
         if (empty($media_items)) {
             error_log('CNF Setup: No media items to upload');

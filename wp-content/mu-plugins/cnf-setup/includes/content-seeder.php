@@ -42,7 +42,14 @@ class CNF_Content_Seeder {
      * Creates all content items defined in schema.
      */
     public function seed_all() {
-        $content_items = isset($this->schema['content']) ? $this->schema['content'] : array();
+        $content_items = isset($this->schema['sampleContent']) ? $this->schema['sampleContent'] : array();
+
+        if (empty($content_items)) {
+            error_log('CNF Setup: No content items found in schema');
+            return false;
+        }
+
+        error_log('CNF Setup: Found ' . count($content_items) . ' content items to seed');
 
         foreach ($content_items as $content) {
             $this->create_content_item($content);
