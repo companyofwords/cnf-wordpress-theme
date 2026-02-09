@@ -64,13 +64,8 @@ class CNF_Automated_Setup {
      * Constructor
      */
     private function __construct() {
-        // Check if setup has already been completed
-        $setup_completed = get_option($this->setup_option, false);
-
-        if (!$setup_completed) {
-            // Run setup on admin_init (after plugins are loaded)
-            add_action('admin_init', array($this, 'run_setup'), 5);
-        }
+        // DISABLED: Automatic setup is disabled to prevent fatal errors
+        // Setup must be triggered manually from Tools > CNF Setup
 
         // Add admin menu for manual setup/reset
         add_action('admin_menu', array($this, 'add_admin_menu'));
@@ -101,19 +96,32 @@ class CNF_Automated_Setup {
             $this->log('Starting CNF automated setup...');
 
             // Load includes
+            $this->log('Loading include files...');
             $this->load_includes();
+            $this->log('Include files loaded successfully');
 
             // Read schema
+            $this->log('Reading schema file...');
             $schema = $this->read_schema();
             if (!$schema) {
                 throw new Exception('Failed to read schema');
             }
+            $this->log('Schema file read successfully');
 
             // Execute setup steps
+            $this->log('Creating Pods...');
             $this->create_pods($schema);
+
+            $this->log('Seeding content...');
             $this->seed_content($schema);
+
+            $this->log('Uploading media...');
             $this->upload_media($schema);
+
+            $this->log('Creating menus...');
             $this->create_menus($schema);
+
+            $this->log('Customizing dashboard...');
             $this->customize_dashboard($schema);
 
             // Mark setup as completed
@@ -125,6 +133,11 @@ class CNF_Automated_Setup {
 
         } catch (Exception $e) {
             $this->log_error('Setup failed: ' . $e->getMessage());
+            $this->log_error('Stack trace: ' . $e->getTraceAsString());
+            return false;
+        } catch (Error $e) {
+            $this->log_error('PHP Error: ' . $e->getMessage());
+            $this->log_error('Stack trace: ' . $e->getTraceAsString());
             return false;
         }
     }
