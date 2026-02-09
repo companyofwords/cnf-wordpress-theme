@@ -1,0 +1,11 @@
+{
+  "name": "cnf-wordpress-theme",
+  "version": "1.0.0",
+  "description": "CNF Mini Dumpers WordPress theme + MU-plugin for WP Engine",
+  "scripts": {
+    "build:schema": "node -e \"const fs=require('fs'); const schema=require('./wp-schema.ts'); fs.writeFileSync('./wp-content/mu-plugins/cnf-setup/schema.json', JSON.stringify(schema.default || schema, null, 2));\""
+  },
+  "keywords": ["wordpress", "pods", "headless", "cnf"],
+  "author": "Wordsco",
+  "license": "MIT"
+}

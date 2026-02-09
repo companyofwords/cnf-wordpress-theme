@@ -1,0 +1,55 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-error.log*
+.npm
+.yarn
+package-lock.json
+yarn.lock
+
+# Build artifacts
+*.log
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.settings/
+.classpath
+
+# WordPress
+wp-config.php
+.htaccess
+
+# MU-plugin logs (keep schema.json for deployment!)
+mu-plugins/cnf-setup/setup.log
+
+# Temp files
+*.tmp
+*.bak
+*~
+.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Testing
+coverage/
+.nyc_output/
+
+# Misc
+*.orig
