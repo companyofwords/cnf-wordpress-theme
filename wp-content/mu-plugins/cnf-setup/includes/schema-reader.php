@@ -85,7 +85,7 @@ class CNF_Schema_Reader {
      * @return bool True if valid, false otherwise
      */
     private function validate_schema($schema) {
-        $required_sections = array('pods', 'content', 'media', 'menus', 'siteSettings');
+        $required_sections = array('pods', 'menus', 'siteSettings');
 
         foreach ($required_sections as $section) {
             if (!isset($schema[$section])) {
@@ -112,7 +112,7 @@ class CNF_Schema_Reader {
      * @return array Content items
      */
     public function get_content() {
-        return isset($this->schema['content']) ? $this->schema['content'] : array();
+        return isset($this->schema['sampleContent']) ? $this->schema['sampleContent'] : array();
     }
 
     /**
@@ -121,7 +121,7 @@ class CNF_Schema_Reader {
      * @return array Media items
      */
     public function get_media() {
-        return isset($this->schema['media']) ? $this->schema['media'] : array();
+        return isset($this->schema['mediaLibrary']) ? $this->schema['mediaLibrary'] : array();
     }
 
     /**
