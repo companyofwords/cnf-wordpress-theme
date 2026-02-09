@@ -244,7 +244,7 @@ class CNF_Content_Seeder {
      */
     private function add_menu_item($menu_id, $item, $parent_id = 0) {
         $item_title = isset($item['title']) ? $item['title'] : '';
-        $item_url = isset($item['url']) ? $item->url'] : '';
+        $item_url = isset($item['url']) ? $item['url'] : '';
         $item_type = isset($item['type']) ? $item['type'] : 'custom';
         $item_object_id = isset($item['object_id']) ? $item['object_id'] : 0;
         $item_children = isset($item['children']) ? $item['children'] : array();
