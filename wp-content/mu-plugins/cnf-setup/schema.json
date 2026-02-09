@@ -1,0 +1,1963 @@
+{
+  "pods": [
+    {
+      "name": "cnf_machine",
+      "label": "CNF Machines",
+      "label_singular": "CNF Machine",
+      "description": "Tracked mini dumpers and construction equipment",
+      "public": true,
+      "has_archive": true,
+      "hierarchical": false,
+      "supports": [
+        "title",
+        "editor",
+        "thumbnail",
+        "excerpt"
+      ],
+      "menu_icon": "dashicons-admin-tools",
+      "rest_base": "cnf-machines",
+      "rest_enable": true,
+      "fields": [
+        {
+          "name": "title",
+          "label": "Marketing Title",
+          "type": "text",
+          "help": "Eye-catching title (e.g., 'COMPACT POWER')"
+        },
+        {
+          "name": "description",
+          "label": "Marketing Description",
+          "type": "wysiwyg",
+          "help": "Compelling description highlighting key benefits"
+        },
+        {
+          "name": "specifications",
+          "label": "Specifications Summary",
+          "type": "paragraph",
+          "help": "Brief overview of key specifications"
+        },
+        {
+          "name": "dimensions",
+          "label": "Dimensions",
+          "type": "text",
+          "help": "Length x Width x Height (mm)"
+        },
+        {
+          "name": "weight",
+          "label": "Operating Weight",
+          "type": "number",
+          "help": "Weight in kg"
+        },
+        {
+          "name": "power_requirements",
+          "label": "Power Requirements",
+          "type": "text",
+          "help": "Engine specifications"
+        },
+        {
+          "name": "capacity",
+          "label": "Load Capacity",
+          "type": "text",
+          "help": "Maximum load capacity"
+        },
+        {
+          "name": "load_capacity",
+          "label": "Load Capacity (Detailed)",
+          "type": "text",
+          "help": "Full load capacity with units (e.g., '500kg (1102 lbs)')"
+        },
+        {
+          "name": "operating_weight",
+          "label": "Operating Weight",
+          "type": "text",
+          "help": "Machine operating weight"
+        },
+        {
+          "name": "engine",
+          "label": "Engine",
+          "type": "text",
+          "help": "Engine model and specifications"
+        },
+        {
+          "name": "track_width",
+          "label": "Track Width",
+          "type": "text",
+          "help": "Width of tracks"
+        },
+        {
+          "name": "speed",
+          "label": "Speed",
+          "type": "text",
+          "help": "Maximum speed and gearing"
+        },
+        {
+          "name": "performance_metrics",
+          "label": "Performance Metrics",
+          "type": "wysiwyg",
+          "help": "Detailed performance specifications (HTML)"
+        },
+        {
+          "name": "selling_points",
+          "label": "Selling Points",
+          "type": "paragraph",
+          "repeatable": true,
+          "help": "Key benefits and features (one per line)"
+        },
+        {
+          "name": "technical_specs",
+          "label": "Technical Specifications",
+          "type": "paragraph",
+          "repeatable": true,
+          "help": "Detailed technical specifications (one per line)"
+        },
+        {
+          "name": "machine_weight_kg",
+          "label": "Machine Weight (kg)",
+          "type": "number",
+          "help": "Numeric weight for filtering"
+        },
+        {
+          "name": "machine_width_cm",
+          "label": "Machine Width (cm)",
+          "type": "number",
+          "help": "Numeric width for filtering"
+        },
+        {
+          "name": "actions",
+          "label": "Machine Actions",
+          "type": "pick",
+          "pick_object": "custom-simple",
+          "pick_custom": [
+            "high-tip-self-loading",
+            "high-tip",
+            "self-loading",
+            "swivel"
+          ],
+          "pick_format_type": "multi",
+          "help": "Available machine configurations"
+        },
+        {
+          "name": "bg_color",
+          "label": "Background Color",
+          "type": "pick",
+          "pick_object": "custom-simple",
+          "pick_custom": [
+            "light",
+            "dark"
+          ],
+          "pick_format_type": "single",
+          "help": "Background color for display"
+        },
+        {
+          "name": "next_section_id",
+          "label": "Next Section ID",
+          "type": "text",
+          "help": "ID of next section for navigation"
+        },
+        {
+          "name": "brochure_url",
+          "label": "Brochure URL",
+          "type": "file",
+          "help": "Link to downloadable brochure"
+        },
+        {
+          "name": "video_url",
+          "label": "Video URL",
+          "type": "text",
+          "help": "YouTube or video URL"
+        },
+        {
+          "name": "diagram",
+          "label": "Technical Diagram",
+          "type": "file",
+          "help": "Technical diagram or schematic"
+        },
+        {
+          "name": "recommended_uses",
+          "label": "Recommended Uses",
+          "type": "pick",
+          "pick_object": "post_type",
+          "pick_val": "cnf_use",
+          "pick_format_type": "multi",
+          "help": "Related use cases"
+        }
+      ]
+    },
+    {
+      "name": "cnf_use",
+      "label": "CNF Uses",
+      "label_singular": "CNF Use",
+      "description": "Applications and use cases for CNF machines",
+      "public": true,
+      "has_archive": true,
+      "hierarchical": false,
+      "supports": [
+        "title",
+        "editor",
+        "thumbnail",
+        "excerpt"
+      ],
+      "menu_icon": "dashicons-portfolio",
+      "rest_base": "cnf-uses",
+      "rest_enable": true,
+      "fields": [
+        {
+          "name": "industry",
+          "label": "Industry",
+          "type": "text",
+          "help": "Primary industry (e.g., Construction, Landscaping)"
+        },
+        {
+          "name": "application_type",
+          "label": "Application Type",
+          "type": "text",
+          "help": "Specific application type"
+        },
+        {
+          "name": "intro",
+          "label": "Introduction",
+          "type": "wysiwyg",
+          "help": "Brief introduction to this use case"
+        },
+        {
+          "name": "applications",
+          "label": "Applications",
+          "type": "paragraph",
+          "repeatable": true,
+          "help": "Specific applications (one per line)"
+        },
+        {
+          "name": "case_study_title",
+          "label": "Case Study Title",
+          "type": "text",
+          "help": "Title for case study (optional)"
+        },
+        {
+          "name": "case_study_content",
+          "label": "Case Study Content",
+          "type": "wysiwyg",
+          "help": "Case study description"
+        },
+        {
+          "name": "case_study_results",
+          "label": "Case Study Results",
+          "type": "wysiwyg",
+          "help": "Results and outcomes"
+        },
+        {
+          "name": "client_testimonial",
+          "label": "Client Testimonial",
+          "type": "paragraph",
+          "help": "Client quote or testimonial"
+        },
+        {
+          "name": "related_machines",
+          "label": "Related Machines",
+          "type": "pick",
+          "pick_object": "post_type",
+          "pick_val": "cnf_machine",
+          "pick_format_type": "multi",
+          "help": "Recommended machines for this use case"
+        }
+      ]
+    },
+    {
+      "name": "faq",
+      "label": "FAQs",
+      "label_singular": "FAQ",
+      "description": "Frequently Asked Questions",
+      "public": true,
+      "has_archive": true,
+      "hierarchical": false,
+      "supports": [
+        "title"
+      ],
+      "menu_icon": "dashicons-editor-help",
+      "rest_base": "faqs",
+      "rest_enable": true,
+      "fields": [
+        {
+          "name": "question",
+          "label": "Question",
+          "type": "text",
+          "required": true,
+          "help": "The FAQ question"
+        },
+        {
+          "name": "answer",
+          "label": "Answer",
+          "type": "wysiwyg",
+          "required": true,
+          "help": "The detailed answer"
+        },
+        {
+          "name": "category",
+          "label": "Category",
+          "type": "text",
+          "help": "FAQ category (e.g., General, Technical, Purchasing)"
+        },
+        {
+          "name": "key_question",
+          "label": "Key Question",
+          "type": "boolean",
+          "help": "Mark as a featured/key question"
+        },
+        {
+          "name": "order",
+          "label": "Display Order",
+          "type": "number",
+          "help": "Order for displaying FAQs"
+        }
+      ]
+    }
+  ],
+  "taxonomies": [
+    {
+      "name": "machine_category",
+      "label": "Machine Categories",
+      "label_singular": "Machine Category",
+      "object_types": [
+        "cnf_machine"
+      ],
+      "hierarchical": true,
+      "public": true,
+      "show_ui": true,
+      "show_in_rest": true,
+      "rest_base": "machine-categories",
+      "terms": [
+        {
+          "name": "Track Mounted",
+          "slug": "track-mounted"
+        },
+        {
+          "name": "Wheeled",
+          "slug": "wheeled"
+        },
+        {
+          "name": "Self-Loading",
+          "slug": "self-loading"
+        },
+        {
+          "name": "High-Tip",
+          "slug": "high-tip"
+        },
+        {
+          "name": "Swivel",
+          "slug": "swivel"
+        }
+      ]
+    },
+    {
+      "name": "machine_industry",
+      "label": "Machine Industries",
+      "label_singular": "Machine Industry",
+      "object_types": [
+        "cnf_machine"
+      ],
+      "hierarchical": true,
+      "public": true,
+      "show_ui": true,
+      "show_in_rest": true,
+      "rest_base": "machine-industries",
+      "terms": [
+        {
+          "name": "Construction",
+          "slug": "construction"
+        },
+        {
+          "name": "Landscaping",
+          "slug": "landscaping"
+        },
+        {
+          "name": "Agriculture",
+          "slug": "agriculture"
+        },
+        {
+          "name": "Civil Engineering",
+          "slug": "civil-engineering"
+        },
+        {
+          "name": "Equipment Hire",
+          "slug": "equipment-hire"
+        }
+      ]
+    },
+    {
+      "name": "use_category",
+      "label": "Use Categories",
+      "label_singular": "Use Category",
+      "object_types": [
+        "cnf_use"
+      ],
+      "hierarchical": true,
+      "public": true,
+      "show_ui": true,
+      "show_in_rest": true,
+      "rest_base": "use-categories",
+      "terms": [
+        {
+          "name": "Construction",
+          "slug": "construction"
+        },
+        {
+          "name": "Landscaping",
+          "slug": "landscaping"
+        },
+        {
+          "name": "Agriculture",
+          "slug": "agriculture"
+        },
+        {
+          "name": "Equipment Hire",
+          "slug": "equipment-hire"
+        },
+        {
+          "name": "Property Development",
+          "slug": "property-development"
+        },
+        {
+          "name": "Municipal",
+          "slug": "municipal"
+        },
+        {
+          "name": "Housebuilding",
+          "slug": "housebuilding"
+        },
+        {
+          "name": "Demolition",
+          "slug": "demolition"
+        }
+      ]
+    },
+    {
+      "name": "faq_category",
+      "label": "FAQ Categories",
+      "label_singular": "FAQ Category",
+      "object_types": [
+        "faq"
+      ],
+      "hierarchical": true,
+      "public": true,
+      "show_ui": true,
+      "show_in_rest": true,
+      "rest_base": "faq-categories",
+      "terms": [
+        {
+          "name": "General",
+          "slug": "general"
+        },
+        {
+          "name": "Technical",
+          "slug": "technical"
+        },
+        {
+          "name": "Purchasing",
+          "slug": "purchasing"
+        },
+        {
+          "name": "Features",
+          "slug": "features"
+        },
+        {
+          "name": "Resources",
+          "slug": "resources"
+        },
+        {
+          "name": "Comparison",
+          "slug": "comparison"
+        },
+        {
+          "name": "Applications",
+          "slug": "applications"
+        },
+        {
+          "name": "Benefits",
+          "slug": "benefits"
+        }
+      ]
+    }
+  ],
+  "ninjaForms": [
+    {
+      "title": "Contact Form",
+      "fields": [
+        {
+          "type": "textbox",
+          "label": "Name",
+          "required": true,
+          "key": "name"
+        },
+        {
+          "type": "email",
+          "label": "Email",
+          "required": true,
+          "key": "email"
+        },
+        {
+          "type": "phone",
+          "label": "Phone",
+          "required": false,
+          "key": "phone"
+        },
+        {
+          "type": "textarea",
+          "label": "Message",
+          "required": true,
+          "key": "message",
+          "rows": 5
+        },
+        {
+          "type": "submit",
+          "label": "Send Message"
+        }
+      ],
+      "settings": {
+        "form_title": "Contact Us",
+        "success_message": "Thank you for contacting us! We'll get back to you shortly.",
+        "email_notification": {
+          "to": "info@cnfminidumper.com",
+          "subject": "New Contact Form Submission",
+          "from_name": "{field:name}",
+          "from_address": "{field:email}"
+        }
+      }
+    },
+    {
+      "title": "Request Quote Form",
+      "fields": [
+        {
+          "type": "textbox",
+          "label": "Name",
+          "required": true,
+          "key": "name"
+        },
+        {
+          "type": "email",
+          "label": "Email",
+          "required": true,
+          "key": "email"
+        },
+        {
+          "type": "phone",
+          "label": "Phone",
+          "required": true,
+          "key": "phone"
+        },
+        {
+          "type": "textbox",
+          "label": "Company",
+          "required": false,
+          "key": "company"
+        },
+        {
+          "type": "listselect",
+          "label": "Machine Model",
+          "required": true,
+          "key": "model",
+          "options": [
+            {
+              "label": "T50 (500kg)",
+              "value": "T50"
+            },
+            {
+              "label": "T70 (700kg)",
+              "value": "T70"
+            },
+            {
+              "label": "T95 (950kg)",
+              "value": "T95"
+            },
+            {
+              "label": "T150 (1500kg)",
+              "value": "T150"
+            }
+          ]
+        },
+        {
+          "type": "checkbox",
+          "label": "Finance Options",
+          "key": "finance_interest",
+          "options": [
+            {
+              "label": "I'm interested in finance options",
+              "value": "yes"
+            }
+          ]
+        },
+        {
+          "type": "textarea",
+          "label": "Additional Requirements",
+          "required": false,
+          "key": "message",
+          "rows": 4
+        },
+        {
+          "type": "submit",
+          "label": "Request Quote"
+        }
+      ],
+      "settings": {
+        "form_title": "Request a Quote",
+        "success_message": "Thank you! We'll prepare your quote and contact you within 24 hours.",
+        "email_notification": {
+          "to": "sales@cnfminidumper.com",
+          "subject": "New Quote Request - {field:model}",
+          "from_name": "{field:name}",
+          "from_address": "{field:email}"
+        }
+      }
+    },
+    {
+      "title": "Dealer Enquiry Form",
+      "fields": [
+        {
+          "type": "textbox",
+          "label": "Name",
+          "required": true,
+          "key": "name"
+        },
+        {
+          "type": "email",
+          "label": "Email",
+          "required": true,
+          "key": "email"
+        },
+        {
+          "type": "phone",
+          "label": "Phone",
+          "required": true,
+          "key": "phone"
+        },
+        {
+          "type": "textbox",
+          "label": "Company Name",
+          "required": true,
+          "key": "company"
+        },
+        {
+          "type": "textbox",
+          "label": "Postcode",
+          "required": true,
+          "key": "postcode"
+        },
+        {
+          "type": "textarea",
+          "label": "Tell us about your business",
+          "required": true,
+          "key": "message",
+          "rows": 5
+        },
+        {
+          "type": "submit",
+          "label": "Submit Enquiry"
+        }
+      ],
+      "settings": {
+        "form_title": "Become a Dealer",
+        "success_message": "Thank you for your interest! Our dealer team will contact you shortly.",
+        "email_notification": {
+          "to": "dealers@cnfminidumper.com",
+          "subject": "New Dealer Enquiry - {field:company}",
+          "from_name": "{field:name}",
+          "from_address": "{field:email}"
+        }
+      }
+    }
+  ],
+  "menus": [
+    {
+      "name": "Main Navigation",
+      "location": "primary",
+      "items": [
+        {
+          "title": "About",
+          "url": "/about",
+          "type": "custom"
+        },
+        {
+          "title": "Mini Dumpers",
+          "url": "/minidumpers",
+          "type": "custom",
+          "children": [
+            {
+              "title": "T50 - 500kg",
+              "url": "/minidumpers/t50",
+              "type": "custom"
+            },
+            {
+              "title": "T70 - 700kg",
+              "url": "/minidumpers/t70",
+              "type": "custom"
+            },
+            {
+              "title": "T95 - 950kg",
+              "url": "/minidumpers/t95",
+              "type": "custom"
+            },
+            {
+              "title": "T150 - 1500kg",
+              "url": "/minidumpers/t150",
+              "type": "custom"
+            }
+          ]
+        },
+        {
+          "title": "Specialist Dealers",
+          "url": "/dealers",
+          "type": "custom"
+        },
+        {
+          "title": "News",
+          "url": "/news",
+          "type": "custom"
+        }
+      ]
+    },
+    {
+      "name": "Footer - Company",
+      "location": "footer-1",
+      "items": [
+        {
+          "title": "About",
+          "url": "/about",
+          "type": "custom"
+        },
+        {
+          "title": "Mini Dumpers",
+          "url": "/minidumpers",
+          "type": "custom"
+        },
+        {
+          "title": "Specialist Dealers",
+          "url": "/dealers",
+          "type": "custom"
+        },
+        {
+          "title": "News",
+          "url": "/news",
+          "type": "custom"
+        }
+      ]
+    },
+    {
+      "name": "Footer - Products",
+      "location": "footer-2",
+      "items": [
+        {
+          "title": "T50 - 500kg",
+          "url": "/minidumpers/t50",
+          "type": "custom"
+        },
+        {
+          "title": "T70 - 700kg",
+          "url": "/minidumpers/t70",
+          "type": "custom"
+        },
+        {
+          "title": "T95 - 950kg",
+          "url": "/minidumpers/t95",
+          "type": "custom"
+        },
+        {
+          "title": "T150 - 1500kg",
+          "url": "/minidumpers/t150",
+          "type": "custom"
+        }
+      ]
+    },
+    {
+      "name": "Footer - Support",
+      "location": "footer-3",
+      "items": [
+        {
+          "title": "Contact Us",
+          "url": "/contact",
+          "type": "custom"
+        },
+        {
+          "title": "Request Quote",
+          "url": "/contact#quote",
+          "type": "custom"
+        },
+        {
+          "title": "Become a Dealer",
+          "url": "/dealers",
+          "type": "custom"
+        }
+      ]
+    }
+  ],
+  "siteSettings": {
+    "site_title": "CNF Mini Dumpers UK",
+    "tagline": "Premium Italian-Manufactured Tracked Mini Dumpers",
+    "timezone": "Europe/London",
+    "date_format": "d/m/Y",
+    "time_format": "H:i",
+    "posts_per_page": 12,
+    "default_category": "Uncategorised",
+    "contact_info": {
+      "email": "info@cnfminidumper.com",
+      "phone": "0161 494 6000",
+      "address": {
+        "street": "Unit 5, Parkway Trading Estate",
+        "city": "Trafford Park",
+        "postcode": "M17 1SJ",
+        "country": "United Kingdom"
+      }
+    },
+    "social_media": {
+      "twitter": "https://twitter.com/cnfmachines",
+      "linkedin": "https://linkedin.com/company/cnfmachines",
+      "youtube": "https://youtube.com/@cnfmachines",
+      "facebook": "https://facebook.com/cnfmachines"
+    }
+  },
+  "sampleContent": [
+    {
+      "post_type": "cnf_machine",
+      "title": "T50 - 500kg Tracked Mini Dumper",
+      "content": "<p>The T50 is our compact 500kg capacity tracked mini dumper, perfect for restricted access sites and tight working spaces. Combining Italian engineering with practical British requirements, the T50 delivers exceptional performance with its compact design.</p>",
+      "status": "publish",
+      "featured_image": "cnf-t50-1.webp",
+      "fields": {
+        "title": "COMPACT POWER",
+        "description": "Perfect for tight spaces and residential projects. The T50 delivers exceptional performance with its compact design, making it ideal for landscaping and small construction sites. Double-speed translation and triple hydraulic pump distinguish the T50 model, with its 1102 lbs capacity being perfect for soft or rough ground work.",
+        "specifications": "Compact design with impressive 500kg payload capacity. Ideal for landscaping, construction, and agricultural applications.",
+        "dimensions": "1850 x 750 x 1200 mm",
+        "weight": 650,
+        "power_requirements": "Honda GX240 or Yanmar L70",
+        "capacity": "500kg load capacity",
+        "load_capacity": "500kg (1102 lbs)",
+        "operating_weight": "500kg",
+        "engine": "Honda GX240 or Yanmar L70",
+        "track_width": "680mm (26.7 inch)",
+        "speed": "2 speeds: 2.5-3.5 km/h",
+        "performance_metrics": "<ul><li>Speed: 0-6 km/h</li><li>Tipping angle: 45°</li><li>Ground clearance: 150mm</li></ul>",
+        "selling_points": [
+          "Outstanding performance on rough or soft terrain",
+          "Perfect for tight or restricted-access spaces",
+          "Highly efficient for repetitive heavy lifting",
+          "Simple, intuitive controls",
+          "Built for durability and long service life"
+        ],
+        "technical_specs": [
+          "3 track rollers with rocking system",
+          "Hydrostatic transmission",
+          "Electric or manual start",
+          "Triple hydraulic gear pump",
+          "Manual or electric starting"
+        ],
+        "machine_weight_kg": 500,
+        "machine_width_cm": 68,
+        "actions": [
+          "high-tip-self-loading",
+          "high-tip",
+          "self-loading"
+        ],
+        "bg_color": "dark",
+        "next_section_id": "t70",
+        "brochure_url": "cnf-brochure-1.webp",
+        "diagram": "cnf-t50-diagram.webp"
+      },
+      "terms": {
+        "machine_category": [
+          "Track Mounted"
+        ],
+        "machine_industry": [
+          "Construction",
+          "Landscaping",
+          "Agriculture"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_machine",
+      "title": "T70 - 700kg Tracked Mini Dumper",
+      "content": "<p>The T70 offers 700kg capacity with enhanced stability and power, suitable for demanding construction and landscaping projects. The ultimate all-rounder for medium-sized projects with advanced features including swivel functionality.</p>",
+      "status": "publish",
+      "featured_image": "cnf-t70-1.webp",
+      "fields": {
+        "title": "VERSATILE WORKHORSE",
+        "description": "The ultimate all-rounder for medium-sized projects. More effective thermal engine and a great three-stage hydraulic power ensure the T70 minidumper can carry easily up to 1543 lbs loads. The ideal machine for construction sites, landscaping, agriculture, or garden design.",
+        "specifications": "The ultimate all-rounder for medium-sized projects. More effective thermal engine and a great three-stage hydraulic power ensure the T70 minidumper can carry easily up to 1543 lbs loads.",
+        "dimensions": "2100 x 800 x 1300 mm",
+        "weight": 850,
+        "power_requirements": "Honda GX270 8.4 HP or Yanmar L70",
+        "capacity": "700kg load capacity",
+        "load_capacity": "700kg (1543 lbs) / 600kg (1322 lbs) high-tip",
+        "operating_weight": "700kg",
+        "engine": "Honda GX270 8.4 HP or Yanmar L70",
+        "track_width": "680mm (26.7 inch)",
+        "speed": "2 speeds: 2.5-3.5 km/h (1.55-2.2 mph)",
+        "performance_metrics": "<ul><li>Speed: 0-7 km/h</li><li>Tipping angle: 50°</li><li>Ground clearance: 180mm</li></ul>",
+        "selling_points": [
+          "Ideal for construction, landscaping, and agriculture",
+          "Self-loading system for maximum efficiency",
+          "Heavy duty undercarriage for demanding conditions",
+          "Farm bed skip with extra overboard capacity",
+          "Monojoystick control for precise operation"
+        ],
+        "technical_specs": [
+          "3 track rollers with rocking system",
+          "Hydrostatic transmission",
+          "Electric starting",
+          "Three-stage hydraulic power (2 var. displ. pumps + 1 gear pump)",
+          "Self-loading system",
+          "Heavy duty undercarriage"
+        ],
+        "machine_weight_kg": 700,
+        "machine_width_cm": 68,
+        "actions": [
+          "high-tip-self-loading",
+          "swivel",
+          "high-tip",
+          "self-loading"
+        ],
+        "bg_color": "light",
+        "next_section_id": "t95",
+        "brochure_url": "cnf-brochure-1.webp",
+        "diagram": "cnf-t70-diagram.webp"
+      },
+      "terms": {
+        "machine_category": [
+          "Track Mounted"
+        ],
+        "machine_industry": [
+          "Construction",
+          "Landscaping"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_machine",
+      "title": "T95 - 950kg Tracked Mini Dumper",
+      "content": "<p>Our flagship T95 combines 950kg capacity with versatility through multiple configuration options including high-tip and self-loading variants. Unique of its kind with performances and features like no other.</p>",
+      "status": "publish",
+      "featured_image": "cnf-t95-1.webp",
+      "fields": {
+        "title": "ENHANCED EFFICIENCY",
+        "description": "Unique of its kind, the T95 minidumper has performances and features like no other. It's never been easier to carry up to 1984 lbs of material. The double variable-displacement pump with mono-joystick hydraulic control makes this machine powerful and easy-to-use, reducing fuel consumption and eliminating maintenance. Ideal for high-duty activities and rental fleets.",
+        "specifications": "Unique of its kind, the T95 minidumper has performances and features like no other. It's never been easier to carry up to 1984 lbs of material.",
+        "dimensions": "2300 x 900 x 1400 mm",
+        "weight": 1100,
+        "power_requirements": "Honda GX390 or Yanmar L100",
+        "capacity": "950kg load capacity",
+        "load_capacity": "900kg (1984 lbs) / 800kg (1763 lbs) high-tip",
+        "operating_weight": "900kg",
+        "engine": "Honda GX390 or Yanmar L100",
+        "track_width": "780mm (30.7 inch)",
+        "speed": "Single speed: 5 km/h (3.1 mph)",
+        "performance_metrics": "<ul><li>Speed: 0-8 km/h</li><li>Tipping angle: 55°</li><li>Ground clearance: 200mm</li></ul>",
+        "selling_points": [
+          "Low fuel consumption and reduced maintenance",
+          "Powerful and easy-to-use mono-joystick control",
+          "Ideal for high-duty activities and rental fleets",
+          "Engine cover with side opening for easy maintenance",
+          "Softened foot-plate for operator comfort"
+        ],
+        "technical_specs": [
+          "4 track rollers with rocking system",
+          "Double variable-displacement pump",
+          "Monojoystick control",
+          "Electric starting",
+          "Heavy duty undercarriage",
+          "Engine cover with side opening",
+          "Farm bed skip"
+        ],
+        "machine_weight_kg": 900,
+        "machine_width_cm": 78,
+        "actions": [
+          "high-tip-self-loading",
+          "swivel",
+          "high-tip",
+          "self-loading"
+        ],
+        "bg_color": "dark",
+        "next_section_id": "t150",
+        "brochure_url": "cnf-brochure-1.webp",
+        "diagram": "cnf-t95-diagram.webp"
+      },
+      "terms": {
+        "machine_category": [
+          "Track Mounted"
+        ],
+        "machine_industry": [
+          "Construction",
+          "Landscaping",
+          "Agriculture"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_machine",
+      "title": "T150 - 1500kg Tracked Mini Dumper",
+      "content": "<p>The heavy-duty T150 delivers an impressive 1500kg capacity while maintaining compact dimensions for site accessibility. Multi-tool machine that allows equipment changes in just minutes.</p>",
+      "status": "publish",
+      "featured_image": "cnf-t150-1.webp",
+      "fields": {
+        "title": "MAXIMUM CAPACITY",
+        "description": "The T150 is a Multi-tool machine that allows equipment changes in just minutes. Designed for heavy-duty use, it excels in construction and high-workload environments. An endless and precise machine powered by a 26 HP Yanmar diesel engine with powerful hydraulic control guided by mono-joystick. Features quick-attach system for versatile applications.",
+        "specifications": "The T150 is a Multi-tool machine that allows equipment changes in just minutes. Designed for heavy-duty use, it excels in construction and high-workload environments.",
+        "dimensions": "2600 x 1000 x 1500 mm",
+        "weight": 1450,
+        "power_requirements": "Yanmar 3TNV-80 Diesel 26 HP",
+        "capacity": "1500kg load capacity",
+        "load_capacity": "1500kg (3305 lbs) / 1000kg (2204 lbs) high-tip",
+        "operating_weight": "1500kg",
+        "engine": "Yanmar 3TNV-80 Diesel 26 HP",
+        "track_width": "940mm (37 inch)",
+        "speed": "Single speed: 6 km/h (3.7 mph)",
+        "performance_metrics": "<ul><li>Speed: 0-9 km/h</li><li>Tipping angle: 60°</li><li>Ground clearance: 220mm</li></ul>",
+        "selling_points": [
+          "Multi-tool system with quick equipment changes",
+          "Powerful 26 HP Yanmar diesel engine",
+          "Liquid cooling and hydraulic oil cooling systems",
+          "Power take-off (P.T.O) 13 gpm for attachments",
+          "Conical centring and quick-locking system"
+        ],
+        "technical_specs": [
+          "5 track rollers with double rocking-rollers",
+          "Liquid cooling system",
+          "Hydraulic oil cooling",
+          "Quick coupling system",
+          "Monojoystick control",
+          "Gearmotor with hydraulic brake",
+          "Greased track tensioner",
+          "Covered hydraulic connections",
+          "Power take-off (P.T.O) 13 gpm"
+        ],
+        "machine_weight_kg": 1500,
+        "machine_width_cm": 94,
+        "actions": [
+          "high-tip-self-loading",
+          "swivel",
+          "high-tip",
+          "self-loading"
+        ],
+        "bg_color": "light",
+        "next_section_id": "machine-features",
+        "brochure_url": "cnf-brochure-1.webp",
+        "diagram": "cnf-t150-diagram.webp"
+      },
+      "terms": {
+        "machine_category": [
+          "Track Mounted"
+        ],
+        "machine_industry": [
+          "Construction",
+          "Civil Engineering"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_use",
+      "title": "Construction & Groundworks",
+      "content": "<p>Robust and reliable mini dumpers for demanding construction sites and groundwork projects. Built to handle heavy loads and tough terrain.</p>",
+      "status": "publish",
+      "featured_image": "cnf-hero.webp",
+      "fields": {
+        "industry": "Construction",
+        "application_type": "Material Transport & Site Logistics",
+        "intro": "Robust and reliable mini dumpers for demanding construction sites and groundwork projects. Built to handle heavy loads and tough terrain.",
+        "applications": [
+          "Site clearance and preparation",
+          "Foundation work and excavation",
+          "Material transportation",
+          "Concrete and aggregate delivery",
+          "Waste removal"
+        ],
+        "case_study_title": "High-Rise Development in Manchester",
+        "case_study_content": "<p>A major construction company needed to transport materials across a multi-story building site with restricted lift access. CNF T95 dumpers provided the solution...</p>",
+        "case_study_results": "<ul><li>40% reduction in material transport time</li><li>Improved site safety with reduced manual handling</li><li>£15k savings in labour costs</li></ul>",
+        "client_testimonial": "\"The CNF dumpers transformed our site logistics. We could transport materials anywhere on site, regardless of terrain or access restrictions.\" - Site Manager, Major Construction Ltd"
+      },
+      "terms": {
+        "use_category": [
+          "Construction"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_use",
+      "title": "Landscaping & Gardening",
+      "content": "<p>Compact and manoeuvrable dumpers perfect for landscaping projects and garden transformations. Ideal for tight spaces and delicate environments.</p>",
+      "status": "publish",
+      "featured_image": "cnf-hero-5.webp",
+      "fields": {
+        "industry": "Landscaping",
+        "application_type": "Soil & Material Transport",
+        "intro": "Compact and manoeuvrable dumpers perfect for landscaping projects and garden transformations. Ideal for tight spaces and delicate environments.",
+        "applications": [
+          "Garden design and installation",
+          "Soil and mulch delivery",
+          "Paving and pathway construction",
+          "Tree and plant transportation",
+          "Garden waste removal"
+        ],
+        "case_study_title": "Country Estate Garden Restoration",
+        "case_study_content": "<p>A heritage garden required extensive restoration work across manicured lawns and delicate plantings. Traditional machinery would have caused significant damage...</p>",
+        "case_study_results": "<ul><li>Zero lawn damage with track distribution</li><li>Access to previously impossible areas</li><li>Project completed 2 weeks ahead of schedule</li></ul>",
+        "client_testimonial": "\"The low ground pressure meant we could work across the entire site without any damage. Essential for heritage projects.\" - Lead Landscaper, Heritage Gardens Ltd"
+      },
+      "terms": {
+        "use_category": [
+          "Landscaping"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_use",
+      "title": "Agriculture & Farming",
+      "content": "<p>Versatile dumpers designed for agricultural applications and farm work. Efficient material handling across various farming operations.</p>",
+      "status": "publish",
+      "featured_image": "cnf-t95-home.webp",
+      "fields": {
+        "industry": "Agriculture",
+        "application_type": "Feed Distribution & Waste Management",
+        "intro": "Versatile dumpers designed for agricultural applications and farm work. Efficient material handling across various farming operations.",
+        "applications": [
+          "Feed and grain transportation",
+          "Livestock bedding distribution",
+          "Crop harvest support",
+          "Farm maintenance and repairs",
+          "Manure and waste management"
+        ],
+        "case_study_title": "Dairy Farm Modernisation",
+        "case_study_content": "<p>A 200-cow dairy farm needed to improve feed distribution efficiency and reduce manual labour in daily operations...</p>",
+        "case_study_results": "<ul><li>50% reduction in feed distribution time</li><li>Reduced labour costs by £8k annually</li><li>Improved animal welfare with consistent feeding times</li></ul>",
+        "client_testimonial": "\"Game-changer for our daily operations. One person can now do what previously required three.\" - Farm Manager, Greenfield Dairy"
+      },
+      "terms": {
+        "use_category": [
+          "Agriculture"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_use",
+      "title": "Tool & Plant Hire Centres",
+      "content": "<p>Reliable and user-friendly dumpers perfect for hire fleets. Easy to operate, maintain, and transport between job sites.</p>",
+      "status": "publish",
+      "featured_image": "cnf-hero.webp",
+      "fields": {
+        "industry": "Equipment Hire",
+        "application_type": "Rental Fleet Solutions",
+        "intro": "Reliable and user-friendly dumpers perfect for hire fleets. Easy to operate, maintain, and transport between job sites.",
+        "applications": [
+          "Rental fleet operations",
+          "Multiple customer applications",
+          "Short-term project support",
+          "Flexible site solutions",
+          "Easy transport and storage"
+        ]
+      },
+      "terms": {
+        "use_category": [
+          "Equipment Hire"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_use",
+      "title": "Property Development & Renovation",
+      "content": "<p>Compact dumpers ideal for property renovation and development projects. Perfect for working in confined spaces and residential areas.</p>",
+      "status": "publish",
+      "featured_image": "cnf-hero-5.webp",
+      "fields": {
+        "industry": "Property Development",
+        "application_type": "Residential Construction",
+        "intro": "Compact dumpers ideal for property renovation and development projects. Perfect for working in confined spaces and residential areas.",
+        "applications": [
+          "Home renovation and extensions",
+          "Property development sites",
+          "Interior demolition support",
+          "Building material delivery",
+          "Renovation waste removal"
+        ]
+      },
+      "terms": {
+        "use_category": [
+          "Property Development"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_use",
+      "title": "Municipal & Local Authority Work",
+      "content": "<p>Dependable dumpers for council and municipal operations. Suitable for parks, road maintenance, and public works projects.</p>",
+      "status": "publish",
+      "featured_image": "cnf-t95-home.webp",
+      "fields": {
+        "industry": "Municipal",
+        "application_type": "Public Works & Maintenance",
+        "intro": "Dependable dumpers for council and municipal operations. Suitable for parks, road maintenance, and public works projects.",
+        "applications": [
+          "Park and green space maintenance",
+          "Road repairs and resurfacing",
+          "Public infrastructure projects",
+          "Street cleaning support",
+          "Community facility maintenance"
+        ]
+      },
+      "terms": {
+        "use_category": [
+          "Municipal"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_use",
+      "title": "Housebuilding & Extensions",
+      "content": "<p>Essential equipment for housebuilders and extension specialists. Navigate tight residential access points while efficiently moving materials and waste across site.</p>",
+      "status": "publish",
+      "featured_image": "cnf-hero.webp",
+      "fields": {
+        "industry": "Housebuilding",
+        "application_type": "Residential Construction",
+        "intro": "Essential equipment for housebuilders and extension specialists. Navigate tight residential access points while efficiently moving materials and waste across site.",
+        "applications": [
+          "New build residential construction",
+          "Single and double-storey extensions",
+          "Loft conversions and basement excavations",
+          "Material delivery to hard-to-reach areas",
+          "Rubble and waste removal from site",
+          "Groundwork preparation and foundations",
+          "Tight access point navigation (gates, alleyways)",
+          "Internal site transportation"
+        ]
+      },
+      "terms": {
+        "use_category": [
+          "Housebuilding"
+        ]
+      }
+    },
+    {
+      "post_type": "cnf_use",
+      "title": "Demolition & Site Clearance",
+      "content": "<p>Powerful and reliable dumpers built for the demands of demolition work and site clearance. Handle heavy loads of debris, rubble, and waste materials with ease.</p>",
+      "status": "publish",
+      "featured_image": "cnf-t95-home.webp",
+      "fields": {
+        "industry": "Demolition",
+        "application_type": "Demolition & Waste Removal",
+        "intro": "Powerful and reliable dumpers built for the demands of demolition work and site clearance. Handle heavy loads of debris, rubble, and waste materials with ease.",
+        "applications": [
+          "Building and structure demolition support",
+          "Rubble and debris removal",
+          "Site clearance and preparation",
+          "Concrete and brick waste transportation",
+          "Hazardous material containment support",
+          "Confined space demolition access",
+          "Strip-out and decommissioning projects",
+          "Asbestos removal site support (when properly contained)"
+        ]
+      },
+      "terms": {
+        "use_category": [
+          "Demolition"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Who typically uses CNF mini dumpers?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Who typically uses CNF mini dumpers?",
+        "answer": "Construction companies, especially where space is limited or terrain is challenging. Landscaping and gardening businesses — when moving soil, aggregate, or materials across gardens, parks, or irregular terrain. Rental-fleet operators — machines are built for durability and frequent usage. Agricultural users or rural contractors — where tracked mobility helps with uneven or soft ground. Housebuilders – Anywhere where groundworks is required.",
+        "category": "General",
+        "key_question": true,
+        "order": 1
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "How do I enquire or purchase a CNF dumper in the UK?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "How do I enquire or purchase a CNF dumper in the UK?",
+        "answer": "If you're interested in buying or enquiring, use the contact number listed on the site: 0161 494 6000.",
+        "category": "Purchasing",
+        "key_question": true,
+        "order": 2
+      },
+      "terms": {
+        "faq_category": [
+          "Purchasing"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What are the main technical advantages/features of CNF dumpers?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What are the main technical advantages/features of CNF dumpers?",
+        "answer": "Hydrostatic transmission — smooth power delivery and control, especially under load. Mono-joystick hydraulic control — allows easy steering and manoeuvring of the tracked dumper. Ability to handle a variety of materials and terrain: from sand/mud to slopes or rough ground — ideal for sites with limited access. Models allow quick-coupling of additional equipment (on heavier machines), increasing versatility.",
+        "category": "Technical",
+        "key_question": true,
+        "order": 3
+      },
+      "terms": {
+        "faq_category": [
+          "Technical"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What features make CNF mini dumpers efficient and easy to use?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What features make CNF mini dumpers efficient and easy to use?",
+        "answer": "All models use hydrostatic transmission — smooth and responsive drive control, which helps on difficult terrain. Many models use a mono-joystick + hydraulic controls for steering and tipping — which makes operation intuitive and precise. They have heavy-duty undercarriages, rocking-roller track system and track-tensioning — giving durability and reliable performance even under heavy loads or in tough ground conditions. Some (like T150) feature quick-coupling systems — meaning you can attach different implements/accessories, making the dumper more versatile across tasks.",
+        "category": "Technical",
+        "key_question": true,
+        "order": 4
+      },
+      "terms": {
+        "faq_category": [
+          "Technical"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Where can I find official documentation or specifications?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Where can I find official documentation or specifications?",
+        "answer": "Each model page includes a downloadable specification sheet. For example, the T150 model has a full technical specification including engine type, transmission, hydraulic pump data, track width and operating weight.\n\nAdditionally, there is a general brochure for CNF Mini Dumpers summarizing the entire tracked-dumper range.",
+        "category": "Resources",
+        "key_question": false,
+        "order": 5
+      },
+      "terms": {
+        "faq_category": [
+          "Resources"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Is CNF manufacturing own-brand dumpers or reselling from others?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Is CNF manufacturing own-brand dumpers or reselling from others?",
+        "answer": "CNF designs and produces its entire product range internally. The machines come from its own manufacturing — reflecting the company's background in components for earthmoving equipment, and its commitment to quality and innovation.",
+        "category": "General",
+        "key_question": false,
+        "order": 6
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Why choose a CNF tracked dumper rather than a wheeled dumper or wheelbarrow?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Why choose a CNF tracked dumper rather than a wheeled dumper or wheelbarrow?",
+        "answer": "Better traction, stability and safety on difficult ground — The tracks distribute weight over a larger area, reducing ground pressure and avoiding sinking on soft/muddy terrain. This makes tracked dumpers much better for gardens, farms, slopes, or uneven construction sites.\n\nAccess to tight or confined spaces — CNF dumpers are more compact than full-size dump trucks, making them suitable for narrow job-site access, gardens, alleyways, between scaffolding, or inside barns/animal enclosures.\n\nReduced labour and higher productivity — A mini-dumper carries significantly more per load than a wheelbarrow — meaning fewer trips, less physical strain, and faster completion of material-handling tasks.\n\nVersatility across sectors & tasks — From soil transport, waste removal, aggregate or material movement on construction sites, to soil, mulch, manure, feed or harvest-transport on agricultural land — the tracked dumper can adapt to many roles",
+        "category": "Comparison",
+        "key_question": true,
+        "order": 7
+      },
+      "terms": {
+        "faq_category": [
+          "Comparison"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "How does a high-tip mini dumper improve efficiency on construction or landscaping sites?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "How does a high-tip mini dumper improve efficiency on construction or landscaping sites?",
+        "answer": "A high-tip mini dumper allows the operator to tip materials directly into skips, trailers, raised containers, or over obstacles without needing ramps. This removes the time spent building temporary tipping platforms and reduces double-handling of materials. It also keeps the workflow cleaner and safer, especially in areas with limited ground space.",
+        "category": "Features",
+        "key_question": false,
+        "order": 8
+      },
+      "terms": {
+        "faq_category": [
+          "Features"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Why is a high-tip feature useful in confined urban or residential work areas?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Why is a high-tip feature useful in confined urban or residential work areas?",
+        "answer": "In tight sites — such as alleyways, residential gardens, or small renovation sites — space for conventional tipping is often limited. A high-tip dumper can lift and discharge materials into a skip positioned roadside or over a fence without requiring the machine to enter the restricted area. This allows waste removal and material transport even where access is extremely limited.",
+        "category": "Features",
+        "key_question": false,
+        "order": 9
+      },
+      "terms": {
+        "faq_category": [
+          "Features"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What advantages does a high-tip dumper offer for waste-management and demolition work?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What advantages does a high-tip dumper offer for waste-management and demolition work?",
+        "answer": "During demolition or site-clearance tasks, debris often needs to be loaded into high-sided skips. Using a high-tip dumper eliminates the need for a separate loader or lifting equipment. It streamlines the process by moving heavy waste directly from the work area into the skip, improving cycle time and reducing labour costs.",
+        "category": "Applications",
+        "key_question": false,
+        "order": 10
+      },
+      "terms": {
+        "faq_category": [
+          "Applications"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "How does the high-tip system help reduce operator fatigue and manual handling?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "How does the high-tip system help reduce operator fatigue and manual handling?",
+        "answer": "Because the dumper lifts the skip hydraulically, operators avoid repeated manual handling, lifting, or pushing materials up ramps. This not only speeds up productivity but reduces the physical strain on workers, lowering the risk of lifting injuries and fatigue throughout the day.",
+        "category": "Benefits",
+        "key_question": false,
+        "order": 11
+      },
+      "terms": {
+        "faq_category": [
+          "Benefits"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What is a mini dumper?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What is a mini dumper?",
+        "answer": "A mini dumper (also called a tracked dumper or power barrow) is a compact, self-loading machine designed to transport materials on construction sites, landscaping projects, and other applications where space is limited. They feature tracked movement for superior grip and stability, making them ideal for difficult terrain where wheelbarrows or wheeled vehicles would struggle.",
+        "category": "General",
+        "key_question": true,
+        "order": 12
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What's the difference between a mini dumper and a wheelbarrow?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What's the difference between a mini dumper and a wheelbarrow?",
+        "answer": "Mini dumpers are powered machines with engines, tracked wheels, and hydraulic tipping systems, allowing them to carry significantly more weight (500kg-1500kg) with far less physical effort. Wheelbarrows require manual pushing and typically carry under 100kg. Mini dumpers save time, reduce physical strain, and are essential for larger projects or challenging terrain.",
+        "category": "General",
+        "key_question": false,
+        "order": 13
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What are mini dumpers used for?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What are mini dumpers used for?",
+        "answer": "Mini dumpers are used for transporting materials like soil, gravel, concrete, rubble, and landscaping materials on construction sites, gardens, farms, golf courses, and anywhere compact, powerful material handling is needed. They excel in confined spaces, uneven terrain, and situations where larger machinery cannot access.",
+        "category": "General",
+        "key_question": true,
+        "order": 14
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Why are they called 'tracked' dumpers?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Why are they called 'tracked' dumpers?",
+        "answer": "They use continuous rubber or steel tracks (like a small tank) instead of wheels, providing superior traction on uneven terrain, mud, slopes, and soft ground where wheeled vehicles would struggle or sink. Tracks distribute weight more evenly, reducing ground pressure and preventing damage to delicate surfaces.",
+        "category": "Technical",
+        "key_question": false,
+        "order": 15
+      },
+      "terms": {
+        "faq_category": [
+          "Technical"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What does 'self-loading' mean?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What does 'self-loading' mean?",
+        "answer": "Self-loading means the dumper is powered and moves on its own — you don't push it. The operator walks behind or alongside, controlling it with a handle or joystick, whilst the engine does the heavy work. This dramatically reduces physical effort compared to manual wheelbarrows.",
+        "category": "General",
+        "key_question": false,
+        "order": 16
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Are mini dumpers and power barrows the same thing?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Are mini dumpers and power barrows the same thing?",
+        "answer": "They're very similar, and the terms are often used interchangeably. 'Power barrow' and 'mini dumper' generally refer to compact, powered material transport machines. Mini dumpers typically refer to slightly larger capacity machines with more advanced features like hydraulic tipping and swivel functionality.",
+        "category": "General",
+        "key_question": false,
+        "order": 17
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What load capacities do mini dumpers come in?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What load capacities do mini dumpers come in?",
+        "answer": "CNF mini dumpers range from 500kg (T50) up to 1500kg (T150), with 700kg (T70) and 950kg (T95) options in between. Choose based on your typical load requirements — larger capacity models are more productive for heavy-duty work, whilst smaller models excel in very confined spaces.",
+        "category": "Technical",
+        "key_question": true,
+        "order": 18
+      },
+      "terms": {
+        "faq_category": [
+          "Technical"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "How wide are mini dumpers?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "How wide are mini dumpers?",
+        "answer": "Most mini dumpers have track widths between 680mm and 980mm, designed to fit through standard doorways, gates, and narrow paths. Always check specific model dimensions for tight access requirements — CNF can provide detailed specifications for each model to ensure suitability for your site.",
+        "category": "Technical",
+        "key_question": false,
+        "order": 19
+      },
+      "terms": {
+        "faq_category": [
+          "Technical"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What engines do mini dumpers use?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What engines do mini dumpers use?",
+        "answer": "CNF mini dumpers use reliable petrol or diesel engines ranging from 7.5 HP to 15 HP depending on the model, providing the power needed for heavy loads and steep gradients. Diesel engines offer better fuel economy and torque, whilst petrol engines are quieter and easier to maintain.",
+        "category": "Technical",
+        "key_question": false,
+        "order": 20
+      },
+      "terms": {
+        "faq_category": [
+          "Technical"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What is high-tip dumping?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What is high-tip dumping?",
+        "answer": "High-tip dumping means the skip (load bed) can lift to elevated heights (typically 1.2m-1.8m), allowing you to tip materials into skips, hoppers, or over walls without manual lifting. This feature saves significant time and reduces physical strain when loading waste containers or elevated areas.",
+        "category": "Technical",
+        "key_question": true,
+        "order": 21
+      },
+      "terms": {
+        "faq_category": [
+          "Technical"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What does 360° swivel mean?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What does 360° swivel mean?",
+        "answer": "Some models (like the T70, T95, and T150) have a rotating skip that can swivel a full 360 degrees, allowing you to tip loads to either side, behind, or in front without repositioning the entire machine. This dramatically improves efficiency in confined spaces and when working around obstacles.",
+        "category": "Technical",
+        "key_question": false,
+        "order": 22
+      },
+      "terms": {
+        "faq_category": [
+          "Technical"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "How steep a slope can mini dumpers climb?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "How steep a slope can mini dumpers climb?",
+        "answer": "Most quality mini dumpers can handle gradients of 25-35 degrees when loaded, though this varies by model, load weight, and ground conditions. CNF dumpers are designed for challenging terrain with powerful engines and excellent traction. Always operate within manufacturer specifications and assess conditions carefully.",
+        "category": "Technical",
+        "key_question": false,
+        "order": 23
+      },
+      "terms": {
+        "faq_category": [
+          "Technical"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Can mini dumpers be used on lawns without damaging them?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Can mini dumpers be used on lawns without damaging them?",
+        "answer": "Yes, tracked mini dumpers distribute weight more evenly than wheeled vehicles, significantly reducing ground pressure. However, very wet or soft lawns may still show some marking. Consider ground protection boards if working on pristine lawns or in very wet conditions.",
+        "category": "General",
+        "key_question": false,
+        "order": 24
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Are mini dumpers suitable for indoor use?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Are mini dumpers suitable for indoor use?",
+        "answer": "Petrol and diesel models should only be used outdoors or in very well-ventilated areas due to exhaust fumes. Electric models are available for indoor use, though CNF specialises in powerful petrol/diesel units designed for outdoor applications where performance is critical.",
+        "category": "General",
+        "key_question": false,
+        "order": 25
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What's the best mini dumper for landscaping?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What's the best mini dumper for landscaping?",
+        "answer": "For landscaping, the T70 (700kg) or T95 (950kg) are ideal — they offer swivel tipping for precise material placement, high-tip for loading into trucks, and enough capacity for bulk materials without being too large for residential gardens. The swivel feature is particularly valuable for landscaping work.",
+        "category": "Purchasing",
+        "key_question": false,
+        "order": 26
+      },
+      "terms": {
+        "faq_category": [
+          "Purchasing"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Can mini dumpers transport concrete?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Can mini dumpers transport concrete?",
+        "answer": "Absolutely. Mini dumpers are commonly used to transport wet concrete on construction sites, especially where access is limited for larger concrete buggies or mixers. Their tracked design provides excellent stability when carrying heavy, liquid loads.",
+        "category": "General",
+        "key_question": false,
+        "order": 27
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What industries use mini dumpers?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What industries use mini dumpers?",
+        "answer": "Construction, landscaping, groundworks, agriculture, golf course maintenance, equestrian facilities, property development, plant hire companies, and any industry requiring compact material handling in confined or challenging environments.",
+        "category": "General",
+        "key_question": false,
+        "order": 28
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "Do I need a licence to operate a mini dumper?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "Do I need a licence to operate a mini dumper?",
+        "answer": "For private land, no licence is required. For commercial or construction sites, operators should have appropriate training — CPCS or NPORS certification is recommended, though requirements vary by country and specific site regulations. Always check with your site manager or health and safety officer.",
+        "category": "General",
+        "key_question": true,
+        "order": 29
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "How difficult are mini dumpers to operate?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "How difficult are mini dumpers to operate?",
+        "answer": "Modern mini dumpers are designed to be user-friendly. Most feature simple mono-joystick controls — forward/reverse, speed control, and hydraulic tipping all from one handle. Training typically takes hours rather than days, and most operators become proficient very quickly.",
+        "category": "General",
+        "key_question": false,
+        "order": 30
+      },
+      "terms": {
+        "faq_category": [
+          "General"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "What safety features do CNF mini dumpers have?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "What safety features do CNF mini dumpers have?",
+        "answer": "CNF mini dumpers include emergency stop switches, stable low centre of gravity design for enhanced stability, reliable braking systems, and operator presence controls to prevent runaway situations. Regular maintenance and proper operator training further enhance safety.",
+        "category": "Technical",
+        "key_question": false,
+        "order": 31
+      },
+      "terms": {
+        "faq_category": [
+          "Technical"
+        ]
+      }
+    },
+    {
+      "post_type": "faq",
+      "title": "How much do mini dumpers cost?",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "question": "How much do mini dumpers cost?",
+        "answer": "Prices vary by model and capacity. Entry-level 500kg models start around £4,000-£6,000, whilst professional 1500kg models with advanced features can reach £12,000+. Contact CNF for current pricing, financing options, and to discuss which model best suits your requirements and budget.",
+        "category": "Purchasing",
+        "key_question": true,
+        "order": 32
+      },
+      "terms": {
+        "faq_category": [
+          "Purchasing"
+        ]
+      }
+    },
+    {
+      "post_type": "post",
+      "title": "CNF Expands Dealer Network Across the UK",
+      "content": "<p>We are proud to announce the expansion of our UK dealer network with new partners in Scotland and Wales, making CNF mini dumpers more accessible to customers nationwide.</p><p>This strategic expansion reflects our commitment to providing exceptional service and support to all our customers, regardless of location. The new dealers have been carefully selected based on their expertise in construction equipment and dedication to customer satisfaction.</p><p>Each dealer location is fully equipped to provide demonstrations, sales support, parts supply, and comprehensive after-sales service. Our expanded network now covers every major region in the UK, ensuring faster response times and better local support for all CNF customers.</p><h3>Benefits for Customers</h3><ul><li>Local expertise and face-to-face consultations</li><li>Faster parts delivery and service response</li><li>Equipment demonstrations at convenient locations</li><li>Comprehensive warranty and maintenance support</li></ul><p>For more information about your nearest dealer, please visit our dealers page or contact us on 0161 494 6000.</p>",
+      "status": "publish",
+      "featured_image": "cnf-hero-2.webp",
+      "fields": {
+        "author_name": "CNF Marketing Team",
+        "read_time": "3 minutes"
+      },
+      "terms": {
+        "category": [
+          "News"
+        ],
+        "post_tag": [
+          "Company News",
+          "Dealers"
+        ]
+      }
+    },
+    {
+      "post_type": "post",
+      "title": "New T50 Model Sets Industry Standard for Compact Performance",
+      "content": "<p>The latest T50 model introduces enhanced features designed for maximum efficiency in confined spaces, making it the perfect choice for residential and landscaping projects.</p><p>Building on the success of previous models, the new T50 incorporates customer feedback and the latest engineering innovations to deliver unmatched performance in its class. The compact design has been refined to provide even better manoeuvrability without compromising on power or capacity.</p><h3>Key Improvements</h3><ul><li>Enhanced hydrostatic transmission for smoother operation</li><li>Upgraded mono-joystick control system for precision handling</li><li>Improved fuel efficiency reducing running costs</li><li>Reinforced track system for extended durability</li><li>Enhanced operator comfort with ergonomic controls</li></ul><p>The T50 continues to excel in applications where space is at a premium, from narrow access points in residential gardens to tight construction sites. Its 500kg load capacity and compact track width of 680mm make it ideal for navigating through gates, doorways, and other restricted areas.</p><p>Customers who have already taken delivery of the new T50 have praised its reliability, ease of use, and exceptional build quality. Contact us today to arrange a demonstration and experience the difference for yourself.</p>",
+      "status": "publish",
+      "featured_image": "cnf-news.webp",
+      "fields": {
+        "author_name": "CNF Engineering Team",
+        "read_time": "4 minutes"
+      },
+      "terms": {
+        "category": [
+          "News"
+        ],
+        "post_tag": [
+          "Product Launch",
+          "T50"
+        ]
+      }
+    },
+    {
+      "post_type": "post",
+      "title": "CNF Launches Comprehensive Training Programme for Operators",
+      "content": "<p>CNF is pleased to announce the launch of a comprehensive training programme designed to help operators get the most from their mini dumpers while ensuring safe and efficient operation.</p><p>The programme covers everything from basic operation and daily maintenance to advanced techniques and safety protocols. Each course is delivered by experienced CNF technicians who bring real-world expertise to every session.</p><h3>Training Modules Include</h3><ul><li>Safe operation and best practices</li><li>Daily pre-use checks and maintenance</li><li>Advanced manoeuvrability techniques</li><li>Troubleshooting common issues</li><li>Attachment operation and care</li></ul><p>Training can be delivered on-site at your premises or at our dedicated training facilities. We offer flexible scheduling to minimize disruption to your operations.</p><p>For more information or to book training for your team, please contact our training department on 0161 494 6000.</p>",
+      "status": "publish",
+      "featured_image": "cnf-hero-3.webp",
+      "fields": {
+        "author_name": "CNF Training Department",
+        "read_time": "3 minutes"
+      },
+      "terms": {
+        "category": [
+          "News"
+        ],
+        "post_tag": [
+          "Training",
+          "Safety"
+        ]
+      }
+    }
+  ],
+  "mediaLibrary": [],
+  "dashboardCustomization": {
+    "remove_menu_items": [
+      "edit-comments.php",
+      "edit.php",
+      "tools.php",
+      "theme-editor.php",
+      "plugin-editor.php"
+    ],
+    "custom_branding": {
+      "admin_logo": "CNF-logo-red.png",
+      "login_logo": "CNF-logo-red.png",
+      "admin_color_scheme": "modern",
+      "login_background": "#f0f0f0",
+      "footer_text": "Powered by CNF WordPress System"
+    },
+    "menu_order": [
+      "index.php",
+      "edit.php?post_type=cnf_machine",
+      "edit.php?post_type=cnf_use",
+      "edit.php?post_type=faq",
+      "upload.php",
+      "nav-menus.php",
+      "users.php",
+      "options-general.php"
+    ],
+    "custom_dashboard_widgets": [
+      {
+        "title": "Quick Stats",
+        "callback": "display_quick_stats",
+        "position": "side"
+      }
+    ]
+  },
+  "integrations": {
+    "google_analytics": {
+      "enabled": false,
+      "tracking_id": "",
+      "track_events": [
+        {
+          "event": "form_submission",
+          "category": "engagement"
+        },
+        {
+          "event": "machine_view",
+          "category": "product"
+        },
+        {
+          "event": "quote_request",
+          "category": "conversion"
+        }
+      ]
+    },
+    "email_marketing": {
+      "enabled": false,
+      "provider": "mailchimp",
+      "api_key": "",
+      "lists": {
+        "contact_form": "general-inquiries",
+        "quote_requests": "sales-leads"
+      },
+      "double_opt_in": true
+    }
+  }
+}
