@@ -124,6 +124,9 @@ class CNF_Automated_Setup {
             $this->log('Customizing dashboard...');
             $this->customize_dashboard($schema);
 
+            $this->log('Populating theme options...');
+            $this->populate_theme_options($schema);
+
             // Mark setup as completed
             update_option($this->setup_option, time());
 
@@ -221,6 +224,93 @@ class CNF_Automated_Setup {
         $dashboard_customizer = new CNF_Dashboard_Customizer($schema);
         $dashboard_customizer->apply_customizations();
         $this->log('Dashboard customized successfully');
+    }
+
+    /**
+     * Populate Theme Options
+     *
+     * Populates the Theme Options settings page with default values
+     *
+     * @param array $schema Schema data
+     */
+    private function populate_theme_options($schema) {
+        // Default values for Theme Options
+        $theme_options = array(
+            // Branding
+            'brand_color' => '#ee2742',
+            'primary_color' => '#d11f38',
+            'primary_dark_color' => '#b81932',
+            'charcoal_color' => '#212529',
+
+            // Company Information
+            'company_name' => 'CNF MiniDumper',
+            'company_phone' => '0161 494 6000',
+            'company_phone_link' => 'tel:01614946000',
+            'company_email' => 'info@cnfminidumper.com',
+            'company_address_street' => 'Bredbury Parkway',
+            'company_address_city' => 'Bredbury',
+            'company_address_county' => 'Stockport',
+            'company_address_postcode' => 'SK6 2SN',
+
+            // Social Media
+            'social_facebook' => 'https://facebook.com/cnfminidumpers',
+            'social_twitter' => 'https://twitter.com/cnfminidumpers',
+            'social_linkedin' => 'https://linkedin.com/company/cnf-minidumpers',
+            'social_instagram' => 'https://instagram.com/cnfminidumpers',
+
+            // Email Settings
+            'email_from_name' => 'CNF Mini Dumpers',
+            'email_from_address' => 'neil@wordsco.uk',
+            'email_support' => 'neil@wordsco.uk',
+
+            // UI Labels - Header
+            'header_contact_button' => 'CONTACT US',
+
+            // UI Labels - Hero
+            'hero_quote_button' => 'GET A QUOTE',
+            'hero_phone_button' => 'CALL 0161 494 6000',
+            'hero_brochure_button' => 'VIEW BROCHURE',
+
+            // UI Labels - Forms
+            'contact_form_title' => 'Get In Touch',
+            'contact_form_description' => "Fill out the form and we'll get back to you within 24 hours",
+            'contact_form_submit_button' => 'SEND MESSAGE',
+            'contact_form_success' => 'Thank you! We will contact you shortly.',
+
+            'quote_form_title' => 'Request A Quote',
+            'quote_form_description' => 'Get a personalized quote for your selected mini dumper',
+            'quote_form_submit_button' => 'REQUEST QUOTE',
+            'quote_form_success' => "Thank you! We'll send your quote within 24 hours.",
+
+            // UI Labels - Sections
+            'section_news_label' => 'LATEST NEWS',
+            'section_news_title' => 'NEWS & UPDATES',
+            'section_dealers_label' => 'FIND YOUR LOCAL DEALER',
+            'section_dealers_title' => 'Authorised CNF Dealers',
+            'section_faqs_label' => 'FAQS',
+            'section_faqs_title' => 'FREQUENTLY ASKED QUESTIONS',
+
+            // UI Labels - Machine Filter
+            'machine_filter_title' => 'Choose The Perfect Machine',
+            'machine_filter_description' => 'Filter by weight capacity, width, and features to find the ideal mini dumper for your project',
+            'machine_no_results' => 'No machines match your selected needs. Try adjusting your filters.',
+
+            // Footer
+            'footer_copyright' => '© 2024 CNF Mini Dumpers. All rights reserved.',
+        );
+
+        // Save each option
+        foreach ($theme_options as $key => $value) {
+            // Check if option already exists
+            $existing = get_option('cnf_theme_options_' . $key);
+            if ($existing === false) {
+                // Option doesn't exist, create it
+                update_option('cnf_theme_options_' . $key, $value);
+                error_log("CNF Setup: Set theme option '{$key}' to '{$value}'");
+            }
+        }
+
+        $this->log('Theme options populated successfully');
     }
 
     /**
