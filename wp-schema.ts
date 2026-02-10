@@ -349,6 +349,373 @@ export const pods: PodDefinition[] = [
       },
     ],
   },
+
+  // ===========================================================================
+  // THEME OPTIONS POD (Settings Page)
+  // ===========================================================================
+  {
+    name: "cnf_theme_options",
+    label: "CNF Theme Options",
+    type: "settings",
+    description: "Global site settings, branding, company info, and UI labels",
+    menu_name: "CNF Settings",
+    menu_location: "top",
+    menu_icon: "dashicons-admin-settings",
+    fields: [
+      // =====================================================================
+      // TAB 1: BRANDING
+      // =====================================================================
+      {
+        name: "branding_tab",
+        label: "Branding",
+        type: "heading",
+      },
+
+      // Brand Colors
+      {
+        name: "brand_color",
+        label: "Brand Color (Red)",
+        type: "color",
+        default: "#ee2742",
+        help: "Official CNF brand red (logos)",
+      },
+      {
+        name: "primary_color",
+        label: "Primary Color (Accessible Red)",
+        type: "color",
+        default: "#d11f38",
+        help: "Accessible red for UI elements",
+      },
+      {
+        name: "primary_dark_color",
+        label: "Primary Dark Color",
+        type: "color",
+        default: "#b81932",
+        help: "Darker red for hover states",
+      },
+      {
+        name: "charcoal_color",
+        label: "Charcoal Color",
+        type: "color",
+        default: "#212529",
+        help: "Dark gray for backgrounds and text",
+      },
+
+      // Logos
+      {
+        name: "logo_main",
+        label: "Main Logo",
+        type: "file",
+        help: "Red logo on white/transparent background",
+      },
+      {
+        name: "logo_white",
+        label: "White Logo",
+        type: "file",
+        help: "White logo for dark backgrounds",
+      },
+      {
+        name: "logo_mobile",
+        label: "Mobile Logo",
+        type: "file",
+        help: "Logo for mobile navigation",
+      },
+      {
+        name: "favicon",
+        label: "Favicon",
+        type: "file",
+        help: "Browser favicon",
+      },
+
+      // =====================================================================
+      // TAB 2: COMPANY INFORMATION
+      // =====================================================================
+      {
+        name: "company_tab",
+        label: "Company Information",
+        type: "heading",
+      },
+
+      {
+        name: "company_name",
+        label: "Company Name",
+        type: "text",
+        default: "CNF MiniDumper",
+      },
+      {
+        name: "company_phone",
+        label: "Phone Number",
+        type: "text",
+        default: "0161 494 6000",
+        help: "Display format",
+      },
+      {
+        name: "company_phone_link",
+        label: "Phone Link",
+        type: "text",
+        default: "tel:01614946000",
+        help: "Format: tel:01614946000 (no spaces)",
+      },
+      {
+        name: "company_email",
+        label: "Email Address",
+        type: "email",
+        default: "info@cnfminidumper.com",
+      },
+      {
+        name: "company_address_street",
+        label: "Address - Street",
+        type: "text",
+        default: "Bredbury Parkway",
+      },
+      {
+        name: "company_address_city",
+        label: "Address - City",
+        type: "text",
+        default: "Bredbury",
+      },
+      {
+        name: "company_address_county",
+        label: "Address - County",
+        type: "text",
+        default: "Stockport",
+      },
+      {
+        name: "company_address_postcode",
+        label: "Address - Postcode",
+        type: "text",
+        default: "SK6 2SN",
+      },
+
+      // =====================================================================
+      // TAB 3: SOCIAL MEDIA
+      // =====================================================================
+      {
+        name: "social_tab",
+        label: "Social Media",
+        type: "heading",
+      },
+
+      {
+        name: "social_facebook",
+        label: "Facebook URL",
+        type: "website",
+        default: "https://facebook.com/cnfminidumpers",
+      },
+      {
+        name: "social_twitter",
+        label: "Twitter URL",
+        type: "website",
+        default: "https://twitter.com/cnfminidumpers",
+      },
+      {
+        name: "social_linkedin",
+        label: "LinkedIn URL",
+        type: "website",
+        default: "https://linkedin.com/company/cnf-minidumpers",
+      },
+      {
+        name: "social_instagram",
+        label: "Instagram URL",
+        type: "website",
+        default: "https://instagram.com/cnfminidumpers",
+      },
+
+      // =====================================================================
+      // TAB 4: EMAIL SETTINGS
+      // =====================================================================
+      {
+        name: "email_tab",
+        label: "Email Settings",
+        type: "heading",
+      },
+
+      {
+        name: "email_from_name",
+        label: "From Name",
+        type: "text",
+        default: "CNF Mini Dumpers",
+        help: "Name shown as email sender",
+      },
+      {
+        name: "email_from_address",
+        label: "From Email",
+        type: "email",
+        default: "neil@wordsco.uk",
+        help: "Email address for system emails",
+      },
+      {
+        name: "email_support",
+        label: "Support Email",
+        type: "email",
+        default: "neil@wordsco.uk",
+        help: "Email for customer support enquiries",
+      },
+
+      // =====================================================================
+      // TAB 5: UI LABELS & CONTENT
+      // =====================================================================
+      {
+        name: "ui_tab",
+        label: "UI Labels & Content",
+        type: "heading",
+      },
+
+      // Header
+      {
+        name: "header_contact_button",
+        label: "Header Contact Button Text",
+        type: "text",
+        default: "CONTACT US",
+      },
+
+      // Hero CTAs
+      {
+        name: "hero_quote_button",
+        label: "Hero Quote Button",
+        type: "text",
+        default: "GET A QUOTE",
+      },
+      {
+        name: "hero_phone_button",
+        label: "Hero Phone Button",
+        type: "text",
+        default: "CALL 0161 494 6000",
+      },
+      {
+        name: "hero_brochure_button",
+        label: "Hero Brochure Button",
+        type: "text",
+        default: "VIEW BROCHURE",
+      },
+      {
+        name: "hero_brochure_link",
+        label: "Hero Brochure PDF Link",
+        type: "file",
+        help: "Upload brochure PDF",
+      },
+
+      // Contact Form
+      {
+        name: "contact_form_title",
+        label: "Contact Form Title",
+        type: "text",
+        default: "Get In Touch",
+      },
+      {
+        name: "contact_form_description",
+        label: "Contact Form Description",
+        type: "text",
+        default: "Fill out the form and we'll get back to you within 24 hours",
+      },
+      {
+        name: "contact_form_submit_button",
+        label: "Contact Form Submit Button",
+        type: "text",
+        default: "SEND MESSAGE",
+      },
+      {
+        name: "contact_form_success",
+        label: "Contact Form Success Message",
+        type: "text",
+        default: "Thank you! We will contact you shortly.",
+      },
+
+      // Quote Form
+      {
+        name: "quote_form_title",
+        label: "Quote Form Title",
+        type: "text",
+        default: "Request A Quote",
+      },
+      {
+        name: "quote_form_description",
+        label: "Quote Form Description",
+        type: "text",
+        default: "Get a personalized quote for your selected mini dumper",
+      },
+      {
+        name: "quote_form_submit_button",
+        label: "Quote Form Submit Button",
+        type: "text",
+        default: "REQUEST QUOTE",
+      },
+      {
+        name: "quote_form_success",
+        label: "Quote Form Success Message",
+        type: "text",
+        default: "Thank you! We'll send your quote within 24 hours.",
+      },
+
+      // Section Labels
+      {
+        name: "section_news_label",
+        label: "News Section Label",
+        type: "text",
+        default: "LATEST NEWS",
+      },
+      {
+        name: "section_news_title",
+        label: "News Section Title",
+        type: "text",
+        default: "NEWS & UPDATES",
+      },
+      {
+        name: "section_dealers_label",
+        label: "Dealers Section Label",
+        type: "text",
+        default: "FIND YOUR LOCAL DEALER",
+      },
+      {
+        name: "section_dealers_title",
+        label: "Dealers Section Title",
+        type: "text",
+        default: "Authorised CNF Dealers",
+      },
+      {
+        name: "section_faqs_label",
+        label: "FAQs Section Label",
+        type: "text",
+        default: "FAQS",
+      },
+      {
+        name: "section_faqs_title",
+        label: "FAQs Section Title",
+        type: "text",
+        default: "FREQUENTLY ASKED QUESTIONS",
+      },
+
+      // Machine Filter
+      {
+        name: "machine_filter_title",
+        label: "Machine Filter Title",
+        type: "text",
+        default: "Choose The Perfect Machine",
+      },
+      {
+        name: "machine_filter_description",
+        label: "Machine Filter Description",
+        type: "textarea",
+        default:
+          "Filter by weight capacity, width, and features to find the ideal mini dumper for your project",
+      },
+      {
+        name: "machine_no_results",
+        label: "Machine Filter No Results Text",
+        type: "text",
+        default:
+          "No machines match your selected needs. Try adjusting your filters.",
+      },
+
+      // Footer
+      {
+        name: "footer_copyright",
+        label: "Footer Copyright Text",
+        type: "text",
+        default: "© 2024 CNF Mini Dumpers. All rights reserved.",
+      },
+    ],
+  },
 ];
 
 // ============================================================================
