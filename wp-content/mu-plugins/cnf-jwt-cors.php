@@ -11,6 +11,11 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Only load if WordPress REST API is available
+if (!function_exists('rest_api_init')) {
+    return;
+}
+
 /**
  * Enable CORS for WordPress REST API
  * Allows React frontend to make authenticated requests

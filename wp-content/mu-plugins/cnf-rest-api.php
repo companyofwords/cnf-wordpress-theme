@@ -11,6 +11,18 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
+// Only load if WordPress is fully initialized and we're not in AJAX context
+if (!function_exists('register_rest_route')) {
+    return;
+}
+
+// Add error handler to prevent fatal errors
+function cnf_rest_api_error_handler($errno, $errstr, $errfile, $errline) {
+    error_log("CNF REST API Error: [$errno] $errstr in $errfile on line $errline");
+    return true; // Don't execute PHP internal error handler
+}
+set_error_handler('cnf_rest_api_error_handler', E_ERROR | E_WARNING);
+
 /**
  * Register Custom REST API Endpoints
  */
