@@ -377,6 +377,66 @@
           "help": "Browser favicon"
         },
         {
+          "name": "logo_red",
+          "label": "Logo Red Background",
+          "type": "file",
+          "help": "Logo with red background"
+        },
+        {
+          "name": "logo_red_clear",
+          "label": "Logo Red Clear",
+          "type": "file",
+          "help": "Red logo with clear/transparent background"
+        },
+        {
+          "name": "logo_mini_dumper",
+          "label": "Mini Dumper Logo",
+          "type": "file",
+          "help": "Mini dumper logo variation"
+        },
+        {
+          "name": "logo_mini_dumper_white",
+          "label": "Mini Dumper Logo White",
+          "type": "file",
+          "help": "White mini dumper text logo"
+        },
+        {
+          "name": "logo_mini_dumper_black",
+          "label": "Mini Dumper Logo Black",
+          "type": "file",
+          "help": "Black mini dumper text logo"
+        },
+        {
+          "name": "logo_construction_equipment",
+          "label": "Construction Equipment Text Logo",
+          "type": "file",
+          "help": "Construction equipment text logo"
+        },
+        {
+          "name": "alt_logo",
+          "label": "Main Logo Alt Text",
+          "type": "text",
+          "default": "CNF MiniDumper Logo"
+        },
+        {
+          "name": "alt_logo_white",
+          "label": "White Logo Alt Text",
+          "type": "text",
+          "default": "CNF Logo"
+        },
+        {
+          "name": "alt_mini_dumper_white",
+          "label": "Mini Dumper White Alt Text",
+          "type": "text",
+          "default": "Mini Dumper Icon"
+        },
+        {
+          "name": "alt_hero_image",
+          "label": "Hero Image Alt Text",
+          "type": "text",
+          "default": "CNF Mini Dumpers"
+        },
+        {
           "name": "company_tab",
           "label": "Company Information",
           "type": "heading"
@@ -430,6 +490,24 @@
           "label": "Address - Postcode",
           "type": "text",
           "default": "SK6 2SN"
+        },
+        {
+          "name": "company_opening_hours_weekday",
+          "label": "Opening Hours - Weekdays",
+          "type": "text",
+          "default": "Monday - Friday: 8am - 6pm"
+        },
+        {
+          "name": "company_opening_hours_saturday",
+          "label": "Opening Hours - Saturday",
+          "type": "text",
+          "default": "Saturday: 9am - 4pm"
+        },
+        {
+          "name": "company_video_url",
+          "label": "Company Video URL",
+          "type": "website",
+          "help": "URL to company promotional video"
         },
         {
           "name": "social_tab",
@@ -496,6 +574,18 @@
           "label": "Header Contact Button Text",
           "type": "text",
           "default": "CONTACT US"
+        },
+        {
+          "name": "header_mobile_menu_title",
+          "label": "Mobile Menu Title",
+          "type": "text",
+          "default": "Navigation"
+        },
+        {
+          "name": "header_mobile_menu_screen_reader",
+          "label": "Mobile Menu Screen Reader Text",
+          "type": "text",
+          "default": "Open menu"
         },
         {
           "name": "hero_quote_button",
@@ -606,6 +696,60 @@
           "default": "FREQUENTLY ASKED QUESTIONS"
         },
         {
+          "name": "section_about_label",
+          "label": "About Section Label",
+          "type": "text",
+          "default": "ABOUT US"
+        },
+        {
+          "name": "section_about_title",
+          "label": "About Section Title",
+          "type": "text",
+          "default": "CNF MINI DUMPERS"
+        },
+        {
+          "name": "section_machine_features_label",
+          "label": "Machine Features Section Label",
+          "type": "text",
+          "default": "FEATURES"
+        },
+        {
+          "name": "section_machine_features_title",
+          "label": "Machine Features Section Title",
+          "type": "text",
+          "default": "INNOVATIVE DESIGN"
+        },
+        {
+          "name": "section_machine_features_description",
+          "label": "Machine Features Section Description",
+          "type": "textarea",
+          "default": "Every CNF mini dumper is engineered with advanced features that enhance safety, performance, and ease of use. From hydraulic controls to robust safety systems, our machines are built to handle the toughest jobs."
+        },
+        {
+          "name": "section_promotions_label",
+          "label": "Promotions Section Label",
+          "type": "text",
+          "default": "CURRENT PROMOTIONS"
+        },
+        {
+          "name": "section_promotions_title",
+          "label": "Promotions Section Title",
+          "type": "text",
+          "default": "SPECIAL OFFERS"
+        },
+        {
+          "name": "section_machine_uses_title",
+          "label": "Machine Uses Section Title",
+          "type": "text",
+          "default": "Ideal For"
+        },
+        {
+          "name": "section_machine_uses_description",
+          "label": "Machine Uses Section Description",
+          "type": "textarea",
+          "default": "This machine is perfect for a variety of applications and use cases:"
+        },
+        {
           "name": "machine_filter_title",
           "label": "Machine Filter Title",
           "type": "text",
@@ -624,10 +768,624 @@
           "default": "No machines match your selected needs. Try adjusting your filters."
         },
         {
+          "name": "breadcrumbs_tab",
+          "label": "Breadcrumbs",
+          "type": "heading"
+        },
+        {
+          "name": "breadcrumb_home",
+          "label": "Breadcrumb - Home",
+          "type": "text",
+          "default": "Home"
+        },
+        {
+          "name": "breadcrumb_about",
+          "label": "Breadcrumb - About",
+          "type": "text",
+          "default": "About Us"
+        },
+        {
+          "name": "breadcrumb_dealers",
+          "label": "Breadcrumb - Dealers",
+          "type": "text",
+          "default": "Dealers"
+        },
+        {
+          "name": "breadcrumb_mini_dumpers",
+          "label": "Breadcrumb - Mini Dumpers",
+          "type": "text",
+          "default": "Mini Dumpers"
+        },
+        {
+          "name": "breadcrumb_contact",
+          "label": "Breadcrumb - Contact",
+          "type": "text",
+          "default": "Contact Us"
+        },
+        {
+          "name": "breadcrumb_uses",
+          "label": "Breadcrumb - Uses",
+          "type": "text",
+          "default": "Uses & Applications"
+        },
+        {
+          "name": "breadcrumb_faqs",
+          "label": "Breadcrumb - FAQs",
+          "type": "text",
+          "default": "FAQs"
+        },
+        {
+          "name": "breadcrumb_news",
+          "label": "Breadcrumb - News",
+          "type": "text",
+          "default": "News"
+        },
+        {
+          "name": "forms_tab",
+          "label": "Form Fields & Placeholders",
+          "type": "heading"
+        },
+        {
+          "name": "contact_form_label",
+          "label": "Contact Form Section Label",
+          "type": "text",
+          "default": "GET IN TOUCH"
+        },
+        {
+          "name": "contact_form_field_name",
+          "label": "Contact Form - Name Field Label",
+          "type": "text",
+          "default": "Name *"
+        },
+        {
+          "name": "contact_form_field_email",
+          "label": "Contact Form - Email Field Label",
+          "type": "text",
+          "default": "Email *"
+        },
+        {
+          "name": "contact_form_field_phone",
+          "label": "Contact Form - Phone Field Label",
+          "type": "text",
+          "default": "Phone *"
+        },
+        {
+          "name": "contact_form_field_message",
+          "label": "Contact Form - Message Field Label",
+          "type": "text",
+          "default": "Message *"
+        },
+        {
+          "name": "contact_form_placeholder_name",
+          "label": "Contact Form - Name Placeholder",
+          "type": "text",
+          "default": "Your name"
+        },
+        {
+          "name": "contact_form_placeholder_email",
+          "label": "Contact Form - Email Placeholder",
+          "type": "text",
+          "default": "your@email.com"
+        },
+        {
+          "name": "contact_form_placeholder_phone",
+          "label": "Contact Form - Phone Placeholder",
+          "type": "text",
+          "default": "0161 2222222"
+        },
+        {
+          "name": "contact_form_placeholder_message",
+          "label": "Contact Form - Message Placeholder",
+          "type": "text",
+          "default": "Tell us about your project..."
+        },
+        {
+          "name": "contact_form_direct_contact_title",
+          "label": "Contact Form - Direct Contact Title",
+          "type": "text",
+          "default": "OR CALL US DIRECTLY"
+        },
+        {
+          "name": "quote_form_label",
+          "label": "Quote Form Section Label",
+          "type": "text",
+          "default": "REQUEST A QUOTE"
+        },
+        {
+          "name": "quote_form_field_name",
+          "label": "Quote Form - Name Field Label",
+          "type": "text",
+          "default": "Name *"
+        },
+        {
+          "name": "quote_form_field_email",
+          "label": "Quote Form - Email Field Label",
+          "type": "text",
+          "default": "Email *"
+        },
+        {
+          "name": "quote_form_field_phone",
+          "label": "Quote Form - Phone Field Label",
+          "type": "text",
+          "default": "Phone *"
+        },
+        {
+          "name": "quote_form_field_company",
+          "label": "Quote Form - Company Field Label",
+          "type": "text",
+          "default": "Company"
+        },
+        {
+          "name": "quote_form_field_address",
+          "label": "Quote Form - Address Field Label",
+          "type": "text",
+          "default": "Address *"
+        },
+        {
+          "name": "quote_form_field_postcode",
+          "label": "Quote Form - Postcode Field Label",
+          "type": "text",
+          "default": "Postcode *"
+        },
+        {
+          "name": "quote_form_field_model",
+          "label": "Quote Form - Model Field Label",
+          "type": "text",
+          "default": "Model *"
+        },
+        {
+          "name": "quote_form_field_finance_interest",
+          "label": "Quote Form - Finance Interest Field Label",
+          "type": "text",
+          "default": "Interested in finance options?"
+        },
+        {
+          "name": "quote_form_field_message",
+          "label": "Quote Form - Message Field Label",
+          "type": "text",
+          "default": "Message *"
+        },
+        {
+          "name": "quote_form_placeholder_name",
+          "label": "Quote Form - Name Placeholder",
+          "type": "text",
+          "default": "Your name"
+        },
+        {
+          "name": "quote_form_placeholder_email",
+          "label": "Quote Form - Email Placeholder",
+          "type": "text",
+          "default": "your@email.com"
+        },
+        {
+          "name": "quote_form_placeholder_phone",
+          "label": "Quote Form - Phone Placeholder",
+          "type": "text",
+          "default": "0161 2222222"
+        },
+        {
+          "name": "quote_form_placeholder_company",
+          "label": "Quote Form - Company Placeholder",
+          "type": "text",
+          "default": "Your company name"
+        },
+        {
+          "name": "quote_form_placeholder_address",
+          "label": "Quote Form - Address Placeholder",
+          "type": "text",
+          "default": "123 High Street, Manchester"
+        },
+        {
+          "name": "quote_form_placeholder_postcode",
+          "label": "Quote Form - Postcode Placeholder",
+          "type": "text",
+          "default": "M1 1AE"
+        },
+        {
+          "name": "quote_form_placeholder_model",
+          "label": "Quote Form - Model Placeholder",
+          "type": "text",
+          "default": "Select a model"
+        },
+        {
+          "name": "quote_form_placeholder_message",
+          "label": "Quote Form - Message Placeholder",
+          "type": "text",
+          "default": "Tell us about your requirements..."
+        },
+        {
+          "name": "quote_form_direct_contact_title",
+          "label": "Quote Form - Direct Contact Title",
+          "type": "text",
+          "default": "OR CALL US DIRECTLY"
+        },
+        {
+          "name": "dealer_form_label",
+          "label": "Dealer Form Section Label",
+          "type": "text",
+          "default": "DEALER ENQUIRY"
+        },
+        {
+          "name": "dealer_form_title",
+          "label": "Dealer Form Title",
+          "type": "text",
+          "default": "Become A Dealer"
+        },
+        {
+          "name": "dealer_form_description",
+          "label": "Dealer Form Description",
+          "type": "text",
+          "default": "Join our network of authorized CNF dealers across the UK"
+        },
+        {
+          "name": "dealer_form_field_name",
+          "label": "Dealer Form - Name Field Label",
+          "type": "text",
+          "default": "Name *"
+        },
+        {
+          "name": "dealer_form_field_email",
+          "label": "Dealer Form - Email Field Label",
+          "type": "text",
+          "default": "Email *"
+        },
+        {
+          "name": "dealer_form_field_phone",
+          "label": "Dealer Form - Phone Field Label",
+          "type": "text",
+          "default": "Phone *"
+        },
+        {
+          "name": "dealer_form_field_company",
+          "label": "Dealer Form - Company Field Label",
+          "type": "text",
+          "default": "Company"
+        },
+        {
+          "name": "dealer_form_field_postcode",
+          "label": "Dealer Form - Postcode Field Label",
+          "type": "text",
+          "default": "Postcode"
+        },
+        {
+          "name": "dealer_form_field_message",
+          "label": "Dealer Form - Message Field Label",
+          "type": "text",
+          "default": "Message *"
+        },
+        {
+          "name": "dealer_form_placeholder_name",
+          "label": "Dealer Form - Name Placeholder",
+          "type": "text",
+          "default": "Your name"
+        },
+        {
+          "name": "dealer_form_placeholder_email",
+          "label": "Dealer Form - Email Placeholder",
+          "type": "text",
+          "default": "your@email.com"
+        },
+        {
+          "name": "dealer_form_placeholder_phone",
+          "label": "Dealer Form - Phone Placeholder",
+          "type": "text",
+          "default": "0161 2222222"
+        },
+        {
+          "name": "dealer_form_placeholder_company",
+          "label": "Dealer Form - Company Placeholder",
+          "type": "text",
+          "default": "Your company name"
+        },
+        {
+          "name": "dealer_form_placeholder_postcode",
+          "label": "Dealer Form - Postcode Placeholder",
+          "type": "text",
+          "default": "e.g. SK6 2SN"
+        },
+        {
+          "name": "dealer_form_placeholder_message",
+          "label": "Dealer Form - Message Placeholder",
+          "type": "text",
+          "default": "Tell us about your business and interest in becoming a dealer..."
+        },
+        {
+          "name": "dealer_form_submit_button",
+          "label": "Dealer Form Submit Button",
+          "type": "text",
+          "default": "SUBMIT ENQUIRY"
+        },
+        {
+          "name": "dealer_form_success",
+          "label": "Dealer Form Success Message",
+          "type": "text",
+          "default": "Thank you! We'll review your enquiry and be in touch soon."
+        },
+        {
+          "name": "dealer_form_direct_contact_title",
+          "label": "Dealer Form - Direct Contact Title",
+          "type": "text",
+          "default": "OR CALL US DIRECTLY"
+        },
+        {
+          "name": "machine_filter_tab",
+          "label": "Machine Filter",
+          "type": "heading"
+        },
+        {
+          "name": "filter_load_capacity_label",
+          "label": "Load Capacity Filter Label",
+          "type": "text",
+          "default": "Load Capacity"
+        },
+        {
+          "name": "filter_load_capacity_min_label",
+          "label": "Load Capacity Min Label",
+          "type": "text",
+          "default": "500kg"
+        },
+        {
+          "name": "filter_load_capacity_max_label",
+          "label": "Load Capacity Max Label",
+          "type": "text",
+          "default": "1500kg"
+        },
+        {
+          "name": "filter_load_capacity_units",
+          "label": "Load Capacity Units",
+          "type": "text",
+          "default": "kg"
+        },
+        {
+          "name": "filter_track_width_label",
+          "label": "Track Width Filter Label",
+          "type": "text",
+          "default": "Track Width"
+        },
+        {
+          "name": "filter_track_width_min_label",
+          "label": "Track Width Min Label",
+          "type": "text",
+          "default": "680mm"
+        },
+        {
+          "name": "filter_track_width_max_label",
+          "label": "Track Width Max Label",
+          "type": "text",
+          "default": "940mm"
+        },
+        {
+          "name": "filter_track_width_units",
+          "label": "Track Width Units",
+          "type": "text",
+          "default": "mm"
+        },
+        {
+          "name": "filter_features_title",
+          "label": "Filter Features Title",
+          "type": "text",
+          "default": "Features & Actions"
+        },
+        {
+          "name": "filter_result_match_text",
+          "label": "Filter Result - Match Text",
+          "type": "text",
+          "default": "match"
+        },
+        {
+          "name": "filter_result_machine_text",
+          "label": "Filter Result - Machine (Singular)",
+          "type": "text",
+          "default": "machine"
+        },
+        {
+          "name": "filter_result_machines_text",
+          "label": "Filter Result - Machines (Plural)",
+          "type": "text",
+          "default": "machines"
+        },
+        {
+          "name": "filter_result_match_needs_text",
+          "label": "Filter Result - Match Needs Text",
+          "type": "text",
+          "default": "your needs"
+        },
+        {
+          "name": "filter_card_view_details",
+          "label": "Machine Card - View Details Button",
+          "type": "text",
+          "default": "View Details"
+        },
+        {
+          "name": "filter_card_capacity_label",
+          "label": "Machine Card - Capacity Label",
+          "type": "text",
+          "default": "Capacity:"
+        },
+        {
+          "name": "filter_card_width_label",
+          "label": "Machine Card - Width Label",
+          "type": "text",
+          "default": "Width:"
+        },
+        {
+          "name": "footer_tab",
+          "label": "Footer",
+          "type": "heading"
+        },
+        {
+          "name": "footer_show_words_logo",
+          "label": "Show 'Made by WORDS' Attribution",
+          "type": "boolean",
+          "default": true,
+          "help": "Display WORDS attribution in footer"
+        },
+        {
+          "name": "footer_quick_links_title",
+          "label": "Footer - Quick Links Title",
+          "type": "text",
+          "default": "QUICK LINKS"
+        },
+        {
+          "name": "footer_our_machines_title",
+          "label": "Footer - Our Machines Title",
+          "type": "text",
+          "default": "OUR MACHINES"
+        },
+        {
+          "name": "footer_contact_info_title",
+          "label": "Footer - Contact Info Title",
+          "type": "text",
+          "default": "CONTACT INFO"
+        },
+        {
+          "name": "footer_phone_subtext",
+          "label": "Footer - Phone Subtext",
+          "type": "text",
+          "default": "Mon-Fri 8am-6pm"
+        },
+        {
           "name": "footer_copyright",
           "label": "Footer Copyright Text",
           "type": "text",
           "default": "© 2024 CNF Mini Dumpers. All rights reserved."
+        },
+        {
+          "name": "cookie_tab",
+          "label": "Cookie Consent",
+          "type": "heading"
+        },
+        {
+          "name": "cookie_title",
+          "label": "Cookie Notice Title",
+          "type": "text",
+          "default": "COOKIE NOTICE"
+        },
+        {
+          "name": "cookie_description",
+          "label": "Cookie Notice Description",
+          "type": "textarea",
+          "default": "We use cookies to enhance your browsing experience and analyse our traffic. By clicking \"Accept\", you consent to our use of cookies."
+        },
+        {
+          "name": "cookie_accept_button",
+          "label": "Cookie Accept Button",
+          "type": "text",
+          "default": "ACCEPT"
+        },
+        {
+          "name": "cookie_decline_button",
+          "label": "Cookie Decline Button",
+          "type": "text",
+          "default": "Decline"
+        },
+        {
+          "name": "cookie_preferences_title",
+          "label": "Cookie Preferences Title",
+          "type": "text",
+          "default": "Cookie Preferences"
+        },
+        {
+          "name": "cookie_preferences_description",
+          "label": "Cookie Preferences Description",
+          "type": "textarea",
+          "default": "We use cookies to enhance your browsing experience, serve personalised content, and analyse our traffic. You can customise your cookie preferences below."
+        },
+        {
+          "name": "cookie_tabs_settings",
+          "label": "Cookie Preferences - Settings Tab",
+          "type": "text",
+          "default": "Settings"
+        },
+        {
+          "name": "cookie_tabs_information",
+          "label": "Cookie Preferences - Information Tab",
+          "type": "text",
+          "default": "Information"
+        },
+        {
+          "name": "cookie_category_necessary_title",
+          "label": "Necessary Cookies - Title",
+          "type": "text",
+          "default": "Necessary Cookies"
+        },
+        {
+          "name": "cookie_category_necessary_description",
+          "label": "Necessary Cookies - Description",
+          "type": "textarea",
+          "default": "These cookies are essential for the website to function properly. They enable basic features like page navigation and access to secure areas."
+        },
+        {
+          "name": "cookie_category_analytics_title",
+          "label": "Analytics Cookies - Title",
+          "type": "text",
+          "default": "Analytics Cookies"
+        },
+        {
+          "name": "cookie_category_analytics_description",
+          "label": "Analytics Cookies - Description",
+          "type": "textarea",
+          "default": "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously."
+        },
+        {
+          "name": "cookie_category_marketing_title",
+          "label": "Marketing Cookies - Title",
+          "type": "text",
+          "default": "Marketing Cookies"
+        },
+        {
+          "name": "cookie_category_marketing_description",
+          "label": "Marketing Cookies - Description",
+          "type": "textarea",
+          "default": "These cookies are used to track visitors across websites to display relevant advertisements and marketing campaigns."
+        },
+        {
+          "name": "cookie_category_preferences_title",
+          "label": "Preference Cookies - Title",
+          "type": "text",
+          "default": "Preference Cookies"
+        },
+        {
+          "name": "cookie_category_preferences_description",
+          "label": "Preference Cookies - Description",
+          "type": "textarea",
+          "default": "These cookies allow the website to remember choices you make and provide enhanced, personalized features."
+        },
+        {
+          "name": "cookie_info_about_title",
+          "label": "About Cookies Title",
+          "type": "text",
+          "default": "About Cookies"
+        },
+        {
+          "name": "cookie_info_about_description",
+          "label": "About Cookies Description",
+          "type": "textarea",
+          "default": "Cookies are small text files that are placed on your device to help the website provide a better user experience. They are widely used to make websites work more efficiently and provide information to site owners."
+        },
+        {
+          "name": "cookie_info_privacy_link",
+          "label": "Privacy Policy Link Text",
+          "type": "text",
+          "default": "Read our Privacy Policy"
+        },
+        {
+          "name": "cookie_button_accept_all",
+          "label": "Cookie - Accept All Button",
+          "type": "text",
+          "default": "Accept All"
+        },
+        {
+          "name": "cookie_button_reject_all",
+          "label": "Cookie - Reject All Button",
+          "type": "text",
+          "default": "Reject All"
+        },
+        {
+          "name": "cookie_button_save_preferences",
+          "label": "Cookie - Save Preferences Button",
+          "type": "text",
+          "default": "Save Preferences"
         }
       ]
     }

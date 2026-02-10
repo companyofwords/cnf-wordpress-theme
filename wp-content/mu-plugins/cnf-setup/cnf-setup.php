@@ -236,13 +236,19 @@ class CNF_Automated_Setup {
     private function populate_theme_options($schema) {
         // Default values for Theme Options
         $theme_options = array(
-            // Branding
+            // TAB 1: Branding - Colors
             'brand_color' => '#ee2742',
             'primary_color' => '#d11f38',
             'primary_dark_color' => '#b81932',
             'charcoal_color' => '#212529',
 
-            // Company Information
+            // TAB 1: Branding - Alt Texts
+            'alt_logo' => 'CNF MiniDumper Logo',
+            'alt_logo_white' => 'CNF Logo',
+            'alt_mini_dumper_white' => 'Mini Dumper Icon',
+            'alt_hero_image' => 'CNF Mini Dumpers',
+
+            // TAB 2: Company Information
             'company_name' => 'CNF MiniDumper',
             'company_phone' => '0161 494 6000',
             'company_phone_link' => 'tel:01614946000',
@@ -251,52 +257,176 @@ class CNF_Automated_Setup {
             'company_address_city' => 'Bredbury',
             'company_address_county' => 'Stockport',
             'company_address_postcode' => 'SK6 2SN',
+            'company_opening_hours_weekday' => 'Monday - Friday: 8am - 6pm',
+            'company_opening_hours_saturday' => 'Saturday: 9am - 4pm',
 
-            // Social Media
+            // TAB 3: Social Media
             'social_facebook' => 'https://facebook.com/cnfminidumpers',
             'social_twitter' => 'https://twitter.com/cnfminidumpers',
             'social_linkedin' => 'https://linkedin.com/company/cnf-minidumpers',
             'social_instagram' => 'https://instagram.com/cnfminidumpers',
 
-            // Email Settings
+            // TAB 4: Email Settings
             'email_from_name' => 'CNF Mini Dumpers',
             'email_from_address' => 'neil@wordsco.uk',
             'email_support' => 'neil@wordsco.uk',
 
-            // UI Labels - Header
+            // TAB 5: UI Labels - Header
             'header_contact_button' => 'CONTACT US',
+            'header_mobile_menu_title' => 'Navigation',
+            'header_mobile_menu_screen_reader' => 'Open menu',
 
-            // UI Labels - Hero
+            // TAB 5: UI Labels - Hero
             'hero_quote_button' => 'GET A QUOTE',
             'hero_phone_button' => 'CALL 0161 494 6000',
             'hero_brochure_button' => 'VIEW BROCHURE',
 
-            // UI Labels - Forms
+            // TAB 5: UI Labels - Contact Form (Basic)
             'contact_form_title' => 'Get In Touch',
             'contact_form_description' => "Fill out the form and we'll get back to you within 24 hours",
             'contact_form_submit_button' => 'SEND MESSAGE',
             'contact_form_success' => 'Thank you! We will contact you shortly.',
 
+            // TAB 5: UI Labels - Quote Form (Basic)
             'quote_form_title' => 'Request A Quote',
             'quote_form_description' => 'Get a personalized quote for your selected mini dumper',
             'quote_form_submit_button' => 'REQUEST QUOTE',
             'quote_form_success' => "Thank you! We'll send your quote within 24 hours.",
 
-            // UI Labels - Sections
+            // TAB 5: UI Labels - Sections
             'section_news_label' => 'LATEST NEWS',
             'section_news_title' => 'NEWS & UPDATES',
             'section_dealers_label' => 'FIND YOUR LOCAL DEALER',
             'section_dealers_title' => 'Authorised CNF Dealers',
             'section_faqs_label' => 'FAQS',
             'section_faqs_title' => 'FREQUENTLY ASKED QUESTIONS',
+            'section_about_label' => 'ABOUT US',
+            'section_about_title' => 'CNF MINI DUMPERS',
+            'section_machine_features_label' => 'FEATURES',
+            'section_machine_features_title' => 'INNOVATIVE DESIGN',
+            'section_machine_features_description' => 'Every CNF mini dumper is engineered with advanced features that enhance safety, performance, and ease of use. From hydraulic controls to robust safety systems, our machines are built to handle the toughest jobs.',
+            'section_promotions_label' => 'CURRENT PROMOTIONS',
+            'section_promotions_title' => 'SPECIAL OFFERS',
+            'section_machine_uses_title' => 'Ideal For',
+            'section_machine_uses_description' => 'This machine is perfect for a variety of applications and use cases:',
 
-            // UI Labels - Machine Filter
+            // TAB 5: UI Labels - Machine Filter (Basic)
             'machine_filter_title' => 'Choose The Perfect Machine',
             'machine_filter_description' => 'Filter by weight capacity, width, and features to find the ideal mini dumper for your project',
             'machine_no_results' => 'No machines match your selected needs. Try adjusting your filters.',
 
-            // Footer
+            // TAB 6: Breadcrumbs
+            'breadcrumb_home' => 'Home',
+            'breadcrumb_about' => 'About Us',
+            'breadcrumb_dealers' => 'Dealers',
+            'breadcrumb_mini_dumpers' => 'Mini Dumpers',
+            'breadcrumb_contact' => 'Contact Us',
+            'breadcrumb_uses' => 'Uses & Applications',
+            'breadcrumb_faqs' => 'FAQs',
+            'breadcrumb_news' => 'News',
+
+            // TAB 7: Forms - Contact Form Extended
+            'contact_form_label' => 'GET IN TOUCH',
+            'contact_form_field_name' => 'Name *',
+            'contact_form_field_email' => 'Email *',
+            'contact_form_field_phone' => 'Phone *',
+            'contact_form_field_message' => 'Message *',
+            'contact_form_placeholder_name' => 'Your name',
+            'contact_form_placeholder_email' => 'your@email.com',
+            'contact_form_placeholder_phone' => '0161 2222222',
+            'contact_form_placeholder_message' => 'Tell us about your project...',
+            'contact_form_direct_contact_title' => 'OR CALL US DIRECTLY',
+
+            // TAB 7: Forms - Quote Form Extended
+            'quote_form_label' => 'REQUEST A QUOTE',
+            'quote_form_field_name' => 'Name *',
+            'quote_form_field_email' => 'Email *',
+            'quote_form_field_phone' => 'Phone *',
+            'quote_form_field_company' => 'Company',
+            'quote_form_field_address' => 'Address *',
+            'quote_form_field_postcode' => 'Postcode *',
+            'quote_form_field_model' => 'Model *',
+            'quote_form_field_finance_interest' => 'Interested in finance options?',
+            'quote_form_field_message' => 'Message *',
+            'quote_form_placeholder_name' => 'Your name',
+            'quote_form_placeholder_email' => 'your@email.com',
+            'quote_form_placeholder_phone' => '0161 2222222',
+            'quote_form_placeholder_company' => 'Your company name',
+            'quote_form_placeholder_address' => '123 High Street, Manchester',
+            'quote_form_placeholder_postcode' => 'M1 1AE',
+            'quote_form_placeholder_model' => 'Select a model',
+            'quote_form_placeholder_message' => 'Tell us about your requirements...',
+            'quote_form_direct_contact_title' => 'OR CALL US DIRECTLY',
+
+            // TAB 7: Forms - Dealer Enquiry Form Extended
+            'dealer_form_label' => 'DEALER ENQUIRY',
+            'dealer_form_title' => 'Become A Dealer',
+            'dealer_form_description' => 'Join our network of authorized CNF dealers across the UK',
+            'dealer_form_field_name' => 'Name *',
+            'dealer_form_field_email' => 'Email *',
+            'dealer_form_field_phone' => 'Phone *',
+            'dealer_form_field_company' => 'Company',
+            'dealer_form_field_postcode' => 'Postcode',
+            'dealer_form_field_message' => 'Message *',
+            'dealer_form_placeholder_name' => 'Your name',
+            'dealer_form_placeholder_email' => 'your@email.com',
+            'dealer_form_placeholder_phone' => '0161 2222222',
+            'dealer_form_placeholder_company' => 'Your company name',
+            'dealer_form_placeholder_postcode' => 'e.g. SK6 2SN',
+            'dealer_form_placeholder_message' => 'Tell us about your business and interest in becoming a dealer...',
+            'dealer_form_submit_button' => 'SUBMIT ENQUIRY',
+            'dealer_form_success' => "Thank you! We'll review your enquiry and be in touch soon.",
+            'dealer_form_direct_contact_title' => 'OR CALL US DIRECTLY',
+
+            // TAB 8: Machine Filter Extended
+            'filter_load_capacity_label' => 'Load Capacity',
+            'filter_load_capacity_min_label' => '500kg',
+            'filter_load_capacity_max_label' => '1500kg',
+            'filter_load_capacity_units' => 'kg',
+            'filter_track_width_label' => 'Track Width',
+            'filter_track_width_min_label' => '680mm',
+            'filter_track_width_max_label' => '940mm',
+            'filter_track_width_units' => 'mm',
+            'filter_features_title' => 'Features & Actions',
+            'filter_result_match_text' => 'match',
+            'filter_result_machine_text' => 'machine',
+            'filter_result_machines_text' => 'machines',
+            'filter_result_match_needs_text' => 'your needs',
+            'filter_card_view_details' => 'View Details',
+            'filter_card_capacity_label' => 'Capacity:',
+            'filter_card_width_label' => 'Width:',
+
+            // TAB 9: Footer
+            'footer_show_words_logo' => '1',  // Boolean stored as string '1' or '0'
+            'footer_quick_links_title' => 'QUICK LINKS',
+            'footer_our_machines_title' => 'OUR MACHINES',
+            'footer_contact_info_title' => 'CONTACT INFO',
+            'footer_phone_subtext' => 'Mon-Fri 8am-6pm',
             'footer_copyright' => '© 2024 CNF Mini Dumpers. All rights reserved.',
+
+            // TAB 10: Cookie Consent
+            'cookie_title' => 'COOKIE NOTICE',
+            'cookie_description' => 'We use cookies to enhance your browsing experience and analyse our traffic. By clicking "Accept", you consent to our use of cookies.',
+            'cookie_accept_button' => 'ACCEPT',
+            'cookie_decline_button' => 'Decline',
+            'cookie_preferences_title' => 'Cookie Preferences',
+            'cookie_preferences_description' => 'We use cookies to enhance your browsing experience, serve personalised content, and analyse our traffic. You can customise your cookie preferences below.',
+            'cookie_tabs_settings' => 'Settings',
+            'cookie_tabs_information' => 'Information',
+            'cookie_category_necessary_title' => 'Necessary Cookies',
+            'cookie_category_necessary_description' => 'These cookies are essential for the website to function properly. They enable basic features like page navigation and access to secure areas.',
+            'cookie_category_analytics_title' => 'Analytics Cookies',
+            'cookie_category_analytics_description' => 'These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.',
+            'cookie_category_marketing_title' => 'Marketing Cookies',
+            'cookie_category_marketing_description' => 'These cookies are used to track visitors across websites to display relevant advertisements and marketing campaigns.',
+            'cookie_category_preferences_title' => 'Preference Cookies',
+            'cookie_category_preferences_description' => 'These cookies allow the website to remember choices you make and provide enhanced, personalized features.',
+            'cookie_info_about_title' => 'About Cookies',
+            'cookie_info_about_description' => 'Cookies are small text files that are placed on your device to help the website provide a better user experience. They are widely used to make websites work more efficiently and provide information to site owners.',
+            'cookie_info_privacy_link' => 'Read our Privacy Policy',
+            'cookie_button_accept_all' => 'Accept All',
+            'cookie_button_reject_all' => 'Reject All',
+            'cookie_button_save_preferences' => 'Save Preferences',
         );
 
         // Save each option
