@@ -73,11 +73,14 @@ class CNF_Content_Seeder {
         $status = isset($content['status']) ? $content['status'] : 'publish';
         $pods_fields = isset($content['fields']) ? $content['fields'] : array();
         $featured_image = isset($content['featured_image']) ? $content['featured_image'] : '';
+        $terms = isset($content['terms']) ? $content['terms'] : array();
 
         if (empty($title)) {
             error_log('CNF Setup: Content title is empty, skipping');
             return false;
         }
+
+        error_log("CNF Setup: Processing '{$title}' (type: {$post_type})");
 
         // Check if content already exists (by slug)
         if (!empty($slug)) {
@@ -85,6 +88,19 @@ class CNF_Content_Seeder {
             if ($existing_post) {
                 error_log("CNF Setup: Content '{$title}' already exists (slug: {$slug}), skipping");
                 return $existing_post->ID;
+            }
+        }
+
+        // Check by title if no slug
+        if (empty($slug)) {
+            $existing_posts = get_posts(array(
+                'post_type' => $post_type,
+                'title' => $title,
+                'posts_per_page' => 1,
+            ));
+            if (!empty($existing_posts)) {
+                error_log("CNF Setup: Content '{$title}' already exists (by title), skipping");
+                return $existing_posts[0]->ID;
             }
         }
 
@@ -105,6 +121,11 @@ class CNF_Content_Seeder {
         }
 
         error_log("CNF Setup: Created {$post_type} '{$title}' with ID {$post_id}");
+
+        // Set taxonomies (categories, tags, etc.)
+        if (!empty($terms)) {
+            $this->set_taxonomies($post_id, $terms);
+        }
 
         // Set Pods fields
         if (!empty($pods_fields) && function_exists('pods')) {
@@ -176,6 +197,61 @@ class CNF_Content_Seeder {
         } else {
             error_log("CNF Setup: Featured image '{$image_filename}' not found in media library");
         }
+    }
+
+    /**
+     * Set Taxonomies (Categories, Tags, Custom Taxonomies)
+     *
+     * @param int $post_id Post ID
+     * @param array $terms Terms to assign (taxonomy => [term_names])
+     */
+    private function set_taxonomies($post_id, $terms) {
+        if (empty($terms)) {
+            return false;
+        }
+
+        error_log("CNF Setup: Setting taxonomies for post {$post_id}");
+
+        foreach ($terms as $taxonomy => $term_names) {
+            if (empty($term_names) || !is_array($term_names)) {
+                continue;
+            }
+
+            // Create taxonomy terms if they don't exist and get term IDs
+            $term_ids = array();
+            foreach ($term_names as $term_name) {
+                // Check if term exists
+                $term = term_exists($term_name, $taxonomy);
+
+                if (!$term) {
+                    // Create the term
+                    $result = wp_insert_term($term_name, $taxonomy);
+                    if (is_wp_error($result)) {
+                        error_log("CNF Setup: Failed to create term '{$term_name}' in taxonomy '{$taxonomy}': " . $result->get_error_message());
+                        continue;
+                    }
+                    $term_id = $result['term_id'];
+                    error_log("CNF Setup: Created term '{$term_name}' in taxonomy '{$taxonomy}' with ID {$term_id}");
+                } else {
+                    $term_id = is_array($term) ? $term['term_id'] : $term;
+                    error_log("CNF Setup: Found existing term '{$term_name}' in taxonomy '{$taxonomy}' with ID {$term_id}");
+                }
+
+                $term_ids[] = (int)$term_id;
+            }
+
+            // Assign terms to post
+            if (!empty($term_ids)) {
+                $result = wp_set_object_terms($post_id, $term_ids, $taxonomy);
+                if (is_wp_error($result)) {
+                    error_log("CNF Setup: Failed to assign terms to post {$post_id} for taxonomy '{$taxonomy}': " . $result->get_error_message());
+                } else {
+                    error_log("CNF Setup: Assigned " . count($term_ids) . " term(s) to post {$post_id} for taxonomy '{$taxonomy}'");
+                }
+            }
+        }
+
+        return true;
     }
 
     /**
