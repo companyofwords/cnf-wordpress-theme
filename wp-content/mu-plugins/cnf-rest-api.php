@@ -160,14 +160,30 @@ function cnf_get_pages() {
     $formatted = array();
 
     foreach ($pages as $page) {
-        $formatted[] = array(
+        $page_data = array(
             'id' => $page->ID,
             'slug' => $page->post_name,
             'title' => array('rendered' => $page->post_title),
             'content' => array('rendered' => apply_filters('the_content', $page->post_content)),
             'excerpt' => array('rendered' => $page->post_excerpt),
-            'pods' => pods('page', $page->ID)->export(),
         );
+
+        // Only add Pods data if Pods is available
+        if (function_exists('pods')) {
+            try {
+                $pod = pods('page', $page->ID);
+                if ($pod && $pod->exists()) {
+                    $page_data['pods'] = $pod->export();
+                }
+            } catch (Exception $e) {
+                // Pods not available or error - skip
+                $page_data['pods'] = array();
+            }
+        } else {
+            $page_data['pods'] = array();
+        }
+
+        $formatted[] = $page_data;
     }
 
     return $formatted;
@@ -202,26 +218,36 @@ function cnf_get_theme_options() {
  * Get All Machines (CNF Mini Dumpers)
  */
 function cnf_get_machines() {
-    $machines = pods('cnf_machine', array(
-        'limit' => -1,
-        'orderby' => 'menu_order ASC',
-    ));
-
-    $data = array();
-
-    if ($machines && $machines->total() > 0) {
-        while ($machines->fetch()) {
-            $data[] = array(
-                'id' => $machines->id(),
-                'slug' => $machines->field('slug'),
-                'title' => array('rendered' => $machines->field('post_title')),
-                'content' => array('rendered' => $machines->field('post_content')),
-                'pods' => $machines->export(),
-            );
-        }
+    // Check if Pods is available
+    if (!function_exists('pods')) {
+        return array();
     }
 
-    return $data;
+    try {
+        $machines = pods('cnf_machine', array(
+            'limit' => -1,
+            'orderby' => 'menu_order ASC',
+        ));
+
+        $data = array();
+
+        if ($machines && $machines->total() > 0) {
+            while ($machines->fetch()) {
+                $data[] = array(
+                    'id' => $machines->id(),
+                    'slug' => $machines->field('slug'),
+                    'title' => array('rendered' => $machines->field('post_title')),
+                    'content' => array('rendered' => $machines->field('post_content')),
+                    'pods' => $machines->export(),
+                );
+            }
+        }
+
+        return $data;
+    } catch (Exception $e) {
+        error_log('CNF REST API: Failed to get machines - ' . $e->getMessage());
+        return array();
+    }
 }
 
 /**
@@ -230,77 +256,107 @@ function cnf_get_machines() {
 function cnf_get_machine_by_slug($request) {
     $slug = $request['slug'];
 
-    $machine = pods('cnf_machine', array(
-        'where' => "post_name = '$slug'",
-        'limit' => 1,
-    ));
-
-    if (!$machine || $machine->total() === 0) {
-        return new WP_Error('not_found', 'Machine not found', array('status' => 404));
+    // Check if Pods is available
+    if (!function_exists('pods')) {
+        return new WP_Error('pods_unavailable', 'Pods Framework not available', array('status' => 503));
     }
 
-    $machine->fetch();
+    try {
+        $machine = pods('cnf_machine', array(
+            'where' => "post_name = '$slug'",
+            'limit' => 1,
+        ));
 
-    $data = array(
-        'id' => $machine->id(),
-        'slug' => $machine->field('slug'),
-        'title' => array('rendered' => $machine->field('post_title')),
-        'content' => array('rendered' => $machine->field('post_content')),
-        'pods' => $machine->export(),
-    );
+        if (!$machine || $machine->total() === 0) {
+            return new WP_Error('not_found', 'Machine not found', array('status' => 404));
+        }
 
-    return rest_ensure_response($data);
+        $machine->fetch();
+
+        $data = array(
+            'id' => $machine->id(),
+            'slug' => $machine->field('slug'),
+            'title' => array('rendered' => $machine->field('post_title')),
+            'content' => array('rendered' => $machine->field('post_content')),
+            'pods' => $machine->export(),
+        );
+
+        return rest_ensure_response($data);
+    } catch (Exception $e) {
+        error_log('CNF REST API: Failed to get machine by slug - ' . $e->getMessage());
+        return new WP_Error('server_error', 'Failed to retrieve machine', array('status' => 500));
+    }
 }
 
 /**
  * Get All Uses/Applications
  */
 function cnf_get_uses() {
-    $uses = pods('cnf_use', array(
-        'limit' => -1,
-    ));
-
-    $data = array();
-
-    if ($uses && $uses->total() > 0) {
-        while ($uses->fetch()) {
-            $data[] = array(
-                'id' => $uses->id(),
-                'slug' => $uses->field('slug'),
-                'title' => array('rendered' => $uses->field('post_title')),
-                'content' => array('rendered' => $uses->field('post_content')),
-                'excerpt' => array('rendered' => $uses->field('post_excerpt')),
-                'pods' => $uses->export(),
-            );
-        }
+    // Check if Pods is available
+    if (!function_exists('pods')) {
+        return array();
     }
 
-    return $data;
+    try {
+        $uses = pods('cnf_use', array(
+            'limit' => -1,
+        ));
+
+        $data = array();
+
+        if ($uses && $uses->total() > 0) {
+            while ($uses->fetch()) {
+                $data[] = array(
+                    'id' => $uses->id(),
+                    'slug' => $uses->field('slug'),
+                    'title' => array('rendered' => $uses->field('post_title')),
+                    'content' => array('rendered' => $uses->field('post_content')),
+                    'excerpt' => array('rendered' => $uses->field('post_excerpt')),
+                    'pods' => $uses->export(),
+                );
+            }
+        }
+
+        return $data;
+    } catch (Exception $e) {
+        error_log('CNF REST API: Failed to get uses - ' . $e->getMessage());
+        return array();
+    }
 }
 
 /**
  * Get All FAQs
  */
 function cnf_get_faqs() {
-    $faqs = pods('faq', array(
-        'limit' => -1,
-    ));
-
-    $data = array();
-
-    if ($faqs && $faqs->total() > 0) {
-        while ($faqs->fetch()) {
-            $data[] = array(
-                'id' => $faqs->id(),
-                'slug' => $faqs->field('slug'),
-                'title' => array('rendered' => $faqs->field('post_title')),
-                'content' => array('rendered' => $faqs->field('post_content')),
-                'pods' => $faqs->export(),
-            );
-        }
+    // Check if Pods is available
+    if (!function_exists('pods')) {
+        return array();
     }
 
-    return $data;
+    try {
+        $faqs = pods('faq', array(
+            'limit' => -1,
+        ));
+
+        $data = array();
+
+        if ($faqs && $faqs->total() > 0) {
+            while ($faqs->fetch()) {
+                $data[] = array(
+                    'id' => $faqs->id(),
+                    'slug' => $faqs->field('slug'),
+                    'title' => array('rendered' => $faqs->field('post_title')),
+                    'content' => array('rendered' => $faqs->field('post_content')),
+                    'pods' => $faqs->export(),
+                );
+            }
+        }
+
+        return $data;
+    } catch (Exception $e) {
+        error_log('CNF REST API: Failed to get FAQs - ' . $e->getMessage());
+        return array();
+    }
 }
 
 /**
@@ -316,15 +372,31 @@ function cnf_get_news_posts() {
     $data = array();
 
     foreach ($posts as $post) {
-        $data[] = array(
+        $post_data = array(
             'id' => $post->ID,
             'slug' => $post->post_name,
             'title' => array('rendered' => $post->post_title),
             'content' => array('rendered' => apply_filters('the_content', $post->post_content)),
             'excerpt' => array('rendered' => $post->post_excerpt),
             'date' => $post->post_date,
-            'pods' => pods('post', $post->ID)->export(),
         );
+
+        // Only add Pods data if Pods is available
+        if (function_exists('pods')) {
+            try {
+                $pod = pods('post', $post->ID);
+                if ($pod && $pod->exists()) {
+                    $post_data['pods'] = $pod->export();
+                }
+            } catch (Exception $e) {
+                // Pods not available or error - skip
+                $post_data['pods'] = array();
+            }
+        } else {
+            $post_data['pods'] = array();
+        }
+
+        $data[] = $post_data;
     }
 
     return $data;
