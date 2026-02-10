@@ -1894,6 +1894,74 @@
           "Safety"
         ]
       }
+    },
+    {
+      "post_type": "page",
+      "title": "Home",
+      "slug": "home",
+      "content": "",
+      "status": "publish",
+      "fields": {
+        "hero_title": "Premium Tracked Mini Dumpers",
+        "hero_description": "Italian engineering meets British reliability. 500kg-1500kg capacity tracked dumpers for construction, landscaping & groundworks."
+      }
+    },
+    {
+      "post_type": "page",
+      "title": "About CNF Mini Dumpers",
+      "slug": "about",
+      "content": "<p>CNF Mini Dumpers is the UK's leading supplier of premium Italian-manufactured tracked mini dumpers. With over 20 years of experience in the construction equipment industry, we've built our reputation on providing reliable, high-quality machinery backed by exceptional customer service.</p><h2>Our Story</h2><p>Founded with a vision to bring the best European engineering to the UK market, CNF has grown from a small operation to become the trusted choice for contractors, landscapers, and construction professionals across the country.</p><h2>Why Choose CNF?</h2><ul><li>Premium Italian manufacturing quality</li><li>Comprehensive after-sales support</li><li>Nationwide dealer network</li><li>Expert technical guidance</li><li>Competitive pricing and finance options</li></ul>",
+      "status": "publish",
+      "featured_image": "cnf-about.webp"
+    },
+    {
+      "post_type": "page",
+      "title": "Contact Us",
+      "slug": "contact",
+      "content": "<p>Get in touch with our team for expert advice on mini dumpers, pricing information, or to arrange a demonstration.</p><h2>Contact Information</h2><p><strong>Phone:</strong> 0161 494 6000<br><strong>Email:</strong> info@cnfminidumper.com</p><h2>Address</h2><p>Bredbury Parkway<br>Bredbury<br>Stockport<br>SK6 2SN</p>",
+      "status": "publish"
+    },
+    {
+      "post_type": "page",
+      "title": "Our Mini Dumpers",
+      "slug": "minidumpers",
+      "content": "<p>Explore our complete range of tracked mini dumpers, from the compact 500kg T50 to the powerful 1500kg T150. Each model is engineered for reliability, efficiency, and operator comfort.</p>",
+      "status": "publish"
+    },
+    {
+      "post_type": "page",
+      "title": "Applications & Industries",
+      "slug": "uses",
+      "content": "<p>CNF mini dumpers are trusted across multiple industries for their versatility, reliability, and performance. Discover how our tracked dumpers can transform your operations.</p>",
+      "status": "publish"
+    },
+    {
+      "post_type": "page",
+      "title": "Frequently Asked Questions",
+      "slug": "faqs",
+      "content": "<p>Find answers to common questions about CNF mini dumpers, from technical specifications to purchasing and support information.</p>",
+      "status": "publish"
+    },
+    {
+      "post_type": "page",
+      "title": "Find a Dealer",
+      "slug": "dealers",
+      "content": "<p>Locate your nearest authorized CNF dealer for demonstrations, sales, and after-sales support. Our network covers the entire UK, ensuring you have local expertise when you need it.</p>",
+      "status": "publish"
+    },
+    {
+      "post_type": "page",
+      "title": "Privacy Policy",
+      "slug": "privacy-policy",
+      "content": "<h2>1. Introduction</h2><p>CNF Mini Dumpers ('we', 'us', 'our') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and protect your personal information.</p><h2>2. Information We Collect</h2><p>We may collect the following types of information:</p><ul><li>Name and contact details</li><li>Company information</li><li>Email address and phone number</li><li>Enquiry details and preferences</li></ul><h2>3. How We Use Your Information</h2><p>We use your information to:</p><ul><li>Respond to your enquiries</li><li>Provide product information</li><li>Process orders and arrangements</li><li>Send marketing communications (with consent)</li></ul><h2>4. Data Protection</h2><p>We implement appropriate security measures to protect your personal data and comply with UK GDPR regulations.</p><h2>5. Your Rights</h2><p>You have the right to:</p><ul><li>Access your personal data</li><li>Request correction of your data</li><li>Request deletion of your data</li><li>Object to processing</li><li>Withdraw consent</li></ul><h2>6. Contact Us</h2><p>For privacy-related enquiries, contact us at info@cnfminidumper.com or call 0161 494 6000.</p>",
+      "status": "publish"
+    },
+    {
+      "post_type": "page",
+      "title": "Terms & Conditions",
+      "slug": "terms-and-conditions",
+      "content": "<h2>1. General Terms</h2><p>These terms and conditions govern your use of the CNF Mini Dumpers website and any purchases made through authorized dealers.</p><h2>2. Product Information</h2><p>All product specifications, images, and descriptions are provided in good faith. We reserve the right to modify specifications without notice.</p><h2>3. Pricing</h2><p>All prices are subject to change. Final pricing will be confirmed with your chosen dealer or our sales team.</p><h2>4. Warranty</h2><p>All CNF mini dumpers come with a manufacturer's warranty. Specific warranty terms vary by model and will be provided at the time of purchase.</p><h2>5. Limitation of Liability</h2><p>CNF Mini Dumpers shall not be liable for any indirect, consequential, or special damages arising from the use of our products or website.</p><h2>6. Governing Law</h2><p>These terms are governed by the laws of England and Wales.</p><h2>7. Contact</h2><p>For questions about these terms, contact us at info@cnfminidumper.com or 0161 494 6000.</p>",
+      "status": "publish"
     }
   ],
   "mediaLibrary": [],
