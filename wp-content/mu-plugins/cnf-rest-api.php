@@ -42,7 +42,7 @@ add_action('rest_api_init', function() {
     // ========================================================================
     register_rest_route('cnf/v1', '/theme-options', array(
         'methods' => 'GET',
-        'callback' => 'cnf_get_theme_options',
+        'callback' => 'cnf_get_theme_options_endpoint',
         'permission_callback' => '__return_true', // Public endpoint
     ));
 
@@ -203,6 +203,7 @@ function cnf_get_pages() {
 
 /**
  * Get Theme Options (All 178 fields)
+ * Returns array directly for use in bootstrap endpoint
  */
 function cnf_get_theme_options() {
     global $wpdb;
@@ -223,7 +224,17 @@ function cnf_get_theme_options() {
         $options[$key] = maybe_unserialize($row['option_value']);
     }
 
-    return rest_ensure_response($options);
+    // Return array directly (not wrapped in REST response)
+    // This function is used within the bootstrap endpoint
+    return $options;
+}
+
+/**
+ * Theme Options REST API Endpoint Handler
+ * Wraps cnf_get_theme_options() in REST response for direct endpoint access
+ */
+function cnf_get_theme_options_endpoint() {
+    return rest_ensure_response(cnf_get_theme_options());
 }
 
 /**
