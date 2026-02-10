@@ -51,9 +51,22 @@ class CNF_Content_Seeder {
 
         error_log('CNF Setup: Found ' . count($content_items) . ' content items to seed');
 
-        foreach ($content_items as $content) {
-            $this->create_content_item($content);
+        $count = 0;
+        foreach ($content_items as $index => $content) {
+            try {
+                error_log("CNF Setup: Processing item " . ($index + 1) . " of " . count($content_items));
+                $result = $this->create_content_item($content);
+                if ($result) {
+                    $count++;
+                }
+            } catch (Exception $e) {
+                error_log("CNF Setup: ERROR processing item " . ($index + 1) . ": " . $e->getMessage());
+            } catch (Error $e) {
+                error_log("CNF Setup: PHP ERROR processing item " . ($index + 1) . ": " . $e->getMessage());
+            }
         }
+
+        error_log("CNF Setup: Successfully created {$count} of " . count($content_items) . " content items");
 
         return true;
     }
