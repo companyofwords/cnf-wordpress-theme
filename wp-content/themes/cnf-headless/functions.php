@@ -129,11 +129,12 @@ add_filter('rest_prepare_post', 'cnf_add_featured_image_to_rest', 10, 3);
 add_filter('rest_prepare_page', 'cnf_add_featured_image_to_rest', 10, 3);
 
 /**
- * Require Custom REST API Endpoints
+ * Custom REST API Endpoints
  *
- * Bootstrap endpoint: Single request to load all site data
+ * NOTE: REST API endpoints moved to MU-plugin: /mu-plugins/cnf-rest-api.php
+ * Bootstrap endpoint available at: /wp-json/cnf/v1/bootstrap
+ * Theme options endpoint available at: /wp-json/cnf/v1/theme-options
  */
-require_once CNF_THEME_DIR . '/inc/rest-api/bootstrap.php';
 
 /**
  * Admin Customization (Optional - can be moved to MU-plugin)
