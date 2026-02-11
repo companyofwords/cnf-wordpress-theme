@@ -1,0 +1,769 @@
+{
+  "name": "cnf_theme_options",
+  "label": "CNF Theme Options",
+  "type": "settings",
+  "storage": "option",
+  "fields": [
+    {
+      "name": "cookie_settings",
+      "label": "Cookie Consent Settings",
+      "type": "heading"
+    },
+    {
+      "name": "cookie_title",
+      "label": "Cookie Title",
+      "type": "text",
+      "default": "COOKIE NOTICE"
+    },
+    {
+      "name": "cookie_description",
+      "label": "Cookie Description",
+      "type": "paragraph",
+      "default": "We use cookies to improve your experience."
+    },
+    {
+      "name": "cookie_tabs_settings",
+      "label": "Cookie Tab: Settings",
+      "type": "text",
+      "default": "Settings"
+    },
+    {
+      "name": "cookie_tabs_information",
+      "label": "Cookie Tab: Information",
+      "type": "text",
+      "default": "Information"
+    },
+    {
+      "name": "cookie_necessary_title",
+      "label": "Necessary Cookies Title",
+      "type": "text",
+      "default": "Necessary Cookies"
+    },
+    {
+      "name": "cookie_necessary_description",
+      "label": "Necessary Cookies Description",
+      "type": "paragraph",
+      "default": "Essential for the website to function."
+    },
+    {
+      "name": "cookie_analytics_title",
+      "label": "Analytics Cookies Title",
+      "type": "text",
+      "default": "Analytics Cookies"
+    },
+    {
+      "name": "cookie_analytics_description",
+      "label": "Analytics Cookies Description",
+      "type": "paragraph",
+      "default": "Help us improve our website."
+    },
+    {
+      "name": "cookie_marketing_title",
+      "label": "Marketing Cookies Title",
+      "type": "text",
+      "default": "Marketing Cookies"
+    },
+    {
+      "name": "cookie_marketing_description",
+      "label": "Marketing Cookies Description",
+      "type": "paragraph",
+      "default": "Used to deliver personalized content."
+    },
+    {
+      "name": "cookie_preferences_title",
+      "label": "Preference Cookies Title",
+      "type": "text",
+      "default": "Preference Cookies"
+    },
+    {
+      "name": "cookie_preferences_description",
+      "label": "Preference Cookies Description",
+      "type": "paragraph",
+      "default": "Remember your preferences."
+    },
+    {
+      "name": "cookie_button_accept_all",
+      "label": "Button: Accept All",
+      "type": "text",
+      "default": "Accept All"
+    },
+    {
+      "name": "cookie_button_reject_all",
+      "label": "Button: Reject All",
+      "type": "text",
+      "default": "Reject All"
+    },
+    {
+      "name": "cookie_button_save_preferences",
+      "label": "Button: Save Preferences",
+      "type": "text",
+      "default": "Save Preferences"
+    },
+    {
+      "name": "cookie_button_manage_cookies",
+      "label": "Button: Manage Cookies",
+      "type": "text",
+      "default": "Manage Cookies"
+    },
+    {
+      "name": "cookie_privacy_policy_link",
+      "label": "Privacy Policy Link",
+      "type": "text",
+      "default": "/privacy-policy"
+    },
+    {
+      "name": "cookie_privacy_policy_text",
+      "label": "Privacy Policy Text",
+      "type": "text",
+      "default": "Privacy Policy"
+    },
+    {
+      "name": "cookie_about_title",
+      "label": "About Cookies Title",
+      "type": "text",
+      "default": "What Are Cookies?"
+    },
+    {
+      "name": "cookie_about_description",
+      "label": "About Cookies Description",
+      "type": "paragraph",
+      "default": "Cookies are small text files stored on your device."
+    },
+    {
+      "name": "cookie_privacy_link_text",
+      "label": "Privacy Link Text",
+      "type": "text",
+      "default": "Read our Privacy Policy"
+    },
+    {
+      "name": "homepage_content",
+      "label": "Homepage Content",
+      "type": "heading"
+    },
+    {
+      "name": "home_hero_title",
+      "label": "Hero Title",
+      "type": "text",
+      "default": "Premium Italian Mini Dumpers"
+    },
+    {
+      "name": "home_hero_description",
+      "label": "Hero Description",
+      "type": "paragraph",
+      "default": "Professional tracked mini dumpers for construction and landscaping."
+    },
+    {
+      "name": "home_hero_cta_quote",
+      "label": "Hero CTA: Quote Button",
+      "type": "text",
+      "default": "Request a Quote"
+    },
+    {
+      "name": "home_hero_cta_brochure_text",
+      "label": "Hero CTA: Brochure Text",
+      "type": "text",
+      "default": "Download Brochure"
+    },
+    {
+      "name": "home_hero_cta_brochure_link",
+      "label": "Hero CTA: Brochure Link",
+      "type": "text",
+      "default": "/brochure.pdf"
+    },
+    {
+      "name": "home_hero_cta_phone",
+      "label": "Hero CTA: Phone Button",
+      "type": "text",
+      "default": "Call Us"
+    },
+    {
+      "name": "home_about_title",
+      "label": "About Section Title",
+      "type": "text",
+      "default": "About Us"
+    },
+    {
+      "name": "home_about_description",
+      "label": "About Section Description",
+      "type": "wysiwyg",
+      "default": "Quality mini dumpers from Italy."
+    },
+    {
+      "name": "home_features_title",
+      "label": "Features Section Title",
+      "type": "text",
+      "default": "Premium Features"
+    },
+    {
+      "name": "home_features_subtitle",
+      "label": "Features Section Subtitle",
+      "type": "text",
+      "default": "Built for Performance"
+    },
+    {
+      "name": "about_page_content",
+      "label": "About Page Content",
+      "type": "heading"
+    },
+    {
+      "name": "about_hero_label",
+      "label": "Hero Label",
+      "type": "text",
+      "default": "About"
+    },
+    {
+      "name": "about_hero_title",
+      "label": "Hero Title",
+      "type": "text",
+      "default": "About CNF Mini Dumpers"
+    },
+    {
+      "name": "about_hero_description",
+      "label": "Hero Description",
+      "type": "paragraph",
+      "default": "Your trusted partner for premium equipment."
+    },
+    {
+      "name": "about_history_title",
+      "label": "History Section Title",
+      "type": "text",
+      "default": "Our Story"
+    },
+    {
+      "name": "about_history_content",
+      "label": "History Section Content",
+      "type": "wysiwyg",
+      "default": ""
+    },
+    {
+      "name": "about_values_title",
+      "label": "Values Section Title",
+      "type": "text",
+      "default": "Our Values"
+    },
+    {
+      "name": "about_values_content",
+      "label": "Values Section Content",
+      "type": "wysiwyg",
+      "default": ""
+    },
+    {
+      "name": "about_quality_title",
+      "label": "Quality Section Title",
+      "type": "text",
+      "default": "Quality Promise"
+    },
+    {
+      "name": "about_quality_content",
+      "label": "Quality Section Content",
+      "type": "wysiwyg",
+      "default": ""
+    },
+    {
+      "name": "about_products_title",
+      "label": "Products Section Title",
+      "type": "text",
+      "default": "Our Products"
+    },
+    {
+      "name": "about_products_content",
+      "label": "Products Section Content",
+      "type": "wysiwyg",
+      "default": ""
+    },
+    {
+      "name": "about_innovation_title",
+      "label": "Innovation Section Title",
+      "type": "text",
+      "default": "Innovation"
+    },
+    {
+      "name": "about_innovation_content",
+      "label": "Innovation Section Content",
+      "type": "wysiwyg",
+      "default": ""
+    },
+    {
+      "name": "contact_page_content",
+      "label": "Contact Page Content",
+      "type": "heading"
+    },
+    {
+      "name": "contact_meta_title",
+      "label": "Meta Title",
+      "type": "text",
+      "default": "Contact Us"
+    },
+    {
+      "name": "contact_meta_description",
+      "label": "Meta Description",
+      "type": "paragraph",
+      "default": "Get in touch with our team."
+    },
+    {
+      "name": "contact_meta_keywords",
+      "label": "Meta Keywords",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "contact_hero_label",
+      "label": "Hero Label",
+      "type": "text",
+      "default": "Contact"
+    },
+    {
+      "name": "contact_hero_title",
+      "label": "Hero Title",
+      "type": "text",
+      "default": "Get In Touch"
+    },
+    {
+      "name": "contact_hero_description",
+      "label": "Hero Description",
+      "type": "paragraph",
+      "default": "We're here to help."
+    },
+    {
+      "name": "dealers_page_content",
+      "label": "Dealers Page Content",
+      "type": "heading"
+    },
+    {
+      "name": "dealers_meta_title",
+      "label": "Meta Title",
+      "type": "text",
+      "default": "Find a Dealer"
+    },
+    {
+      "name": "dealers_meta_description",
+      "label": "Meta Description",
+      "type": "paragraph",
+      "default": "Locate your nearest dealer."
+    },
+    {
+      "name": "dealers_meta_keywords",
+      "label": "Meta Keywords",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "dealers_hero_label",
+      "label": "Hero Label",
+      "type": "text",
+      "default": "Dealers"
+    },
+    {
+      "name": "dealers_hero_title",
+      "label": "Hero Title",
+      "type": "text",
+      "default": "Find Your Local Dealer"
+    },
+    {
+      "name": "dealers_hero_description",
+      "label": "Hero Description",
+      "type": "paragraph",
+      "default": "Authorized dealers across the UK."
+    },
+    {
+      "name": "dealers_become_title",
+      "label": "Become Dealer Title",
+      "type": "text",
+      "default": "Become a Dealer"
+    },
+    {
+      "name": "dealers_become_description",
+      "label": "Become Dealer Description",
+      "type": "paragraph",
+      "default": "Join our dealer network."
+    },
+    {
+      "name": "dealers_become_phone_label",
+      "label": "Become Dealer Phone Label",
+      "type": "text",
+      "default": "Call us:"
+    },
+    {
+      "name": "dealers_become_phone_number",
+      "label": "Become Dealer Phone Number",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "machines_page_content",
+      "label": "Mini Dumpers Page Content",
+      "type": "heading"
+    },
+    {
+      "name": "machines_meta_title",
+      "label": "Meta Title",
+      "type": "text",
+      "default": "Mini Dumpers"
+    },
+    {
+      "name": "machines_meta_description",
+      "label": "Meta Description",
+      "type": "paragraph",
+      "default": "Professional tracked mini dumpers."
+    },
+    {
+      "name": "machines_meta_keywords",
+      "label": "Meta Keywords",
+      "type": "text",
+      "default": ""
+    },
+    {
+      "name": "machines_hero_label",
+      "label": "Hero Label",
+      "type": "text",
+      "default": "Our Machines"
+    },
+    {
+      "name": "machines_hero_title",
+      "label": "Hero Title",
+      "type": "text",
+      "default": "Premium Mini Dumpers"
+    },
+    {
+      "name": "machines_hero_description",
+      "label": "Hero Description",
+      "type": "paragraph",
+      "default": "Italian engineering excellence."
+    },
+    {
+      "name": "machines_cta_title",
+      "label": "CTA Title",
+      "type": "text",
+      "default": "Find Your Perfect Machine"
+    },
+    {
+      "name": "machines_cta_description",
+      "label": "CTA Description",
+      "type": "paragraph",
+      "default": "Contact us for more information."
+    },
+    {
+      "name": "machines_cta_button_call",
+      "label": "CTA Button: Call",
+      "type": "text",
+      "default": "Call Us"
+    },
+    {
+      "name": "machines_cta_button_quote",
+      "label": "CTA Button: Quote",
+      "type": "text",
+      "default": "Request Quote"
+    },
+    {
+      "name": "section_labels",
+      "label": "Section Labels",
+      "type": "heading"
+    },
+    {
+      "name": "news_section_label",
+      "label": "News Section Label",
+      "type": "text",
+      "default": "News"
+    },
+    {
+      "name": "news_section_title",
+      "label": "News Section Title",
+      "type": "text",
+      "default": "Latest News"
+    },
+    {
+      "name": "dealers_section_label",
+      "label": "Dealers Section Label",
+      "type": "text",
+      "default": "Dealers"
+    },
+    {
+      "name": "dealers_section_title",
+      "label": "Dealers Section Title",
+      "type": "text",
+      "default": "Find a Dealer"
+    },
+    {
+      "name": "faqs_section_label",
+      "label": "FAQs Section Label",
+      "type": "text",
+      "default": "FAQs"
+    },
+    {
+      "name": "faqs_section_title",
+      "label": "FAQs Section Title",
+      "type": "text",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "name": "promotions_section_label",
+      "label": "Promotions Section Label",
+      "type": "text",
+      "default": "Promotions"
+    },
+    {
+      "name": "promotions_section_title",
+      "label": "Promotions Section Title",
+      "type": "text",
+      "default": "Special Offers"
+    },
+    {
+      "name": "contact_form_settings",
+      "label": "Contact Form Settings",
+      "type": "heading"
+    },
+    {
+      "name": "contact_form_label",
+      "label": "Form Label",
+      "type": "text",
+      "default": "Contact Form"
+    },
+    {
+      "name": "contact_form_title",
+      "label": "Form Title",
+      "type": "text",
+      "default": "Send Us a Message"
+    },
+    {
+      "name": "contact_form_description",
+      "label": "Form Description",
+      "type": "paragraph",
+      "default": "Fill out the form below."
+    },
+    {
+      "name": "contact_form_field_name",
+      "label": "Field: Name",
+      "type": "text",
+      "default": "Name"
+    },
+    {
+      "name": "contact_form_field_email",
+      "label": "Field: Email",
+      "type": "text",
+      "default": "Email"
+    },
+    {
+      "name": "contact_form_field_phone",
+      "label": "Field: Phone",
+      "type": "text",
+      "default": "Phone"
+    },
+    {
+      "name": "contact_form_field_message",
+      "label": "Field: Message",
+      "type": "text",
+      "default": "Message"
+    },
+    {
+      "name": "contact_form_placeholder_name",
+      "label": "Placeholder: Name",
+      "type": "text",
+      "default": "Your name"
+    },
+    {
+      "name": "contact_form_placeholder_email",
+      "label": "Placeholder: Email",
+      "type": "text",
+      "default": "your@email.com"
+    },
+    {
+      "name": "contact_form_placeholder_phone",
+      "label": "Placeholder: Phone",
+      "type": "text",
+      "default": "Your phone number"
+    },
+    {
+      "name": "contact_form_placeholder_message",
+      "label": "Placeholder: Message",
+      "type": "text",
+      "default": "Your message"
+    },
+    {
+      "name": "contact_form_submit",
+      "label": "Submit Button Text",
+      "type": "text",
+      "default": "Send Message"
+    },
+    {
+      "name": "contact_form_success",
+      "label": "Success Message",
+      "type": "text",
+      "default": "Thank you! We'll be in touch soon."
+    },
+    {
+      "name": "contact_form_direct_title",
+      "label": "Direct Contact Title",
+      "type": "text",
+      "default": "Or contact us directly:"
+    },
+    {
+      "name": "quote_form_settings",
+      "label": "Request Quote Form Settings",
+      "type": "heading"
+    },
+    {
+      "name": "quote_form_label",
+      "label": "Form Label",
+      "type": "text",
+      "default": "Request Quote"
+    },
+    {
+      "name": "quote_form_title",
+      "label": "Form Title",
+      "type": "text",
+      "default": "Get a Quote"
+    },
+    {
+      "name": "quote_form_description",
+      "label": "Form Description",
+      "type": "paragraph",
+      "default": "Request pricing information."
+    },
+    {
+      "name": "quote_form_submit",
+      "label": "Submit Button Text",
+      "type": "text",
+      "default": "Request Quote"
+    },
+    {
+      "name": "quote_form_success",
+      "label": "Success Message",
+      "type": "text",
+      "default": "Quote request submitted!"
+    },
+    {
+      "name": "dealer_form_settings",
+      "label": "Dealer Enquiry Form Settings",
+      "type": "heading"
+    },
+    {
+      "name": "dealer_form_label",
+      "label": "Form Label",
+      "type": "text",
+      "default": "Dealer Enquiry"
+    },
+    {
+      "name": "dealer_form_title",
+      "label": "Form Title",
+      "type": "text",
+      "default": "Become a Dealer"
+    },
+    {
+      "name": "dealer_form_description",
+      "label": "Form Description",
+      "type": "paragraph",
+      "default": "Join our dealer network."
+    },
+    {
+      "name": "dealer_form_submit",
+      "label": "Submit Button Text",
+      "type": "text",
+      "default": "Submit Enquiry"
+    },
+    {
+      "name": "dealer_form_success",
+      "label": "Success Message",
+      "type": "text",
+      "default": "Enquiry submitted!"
+    },
+    {
+      "name": "breadcrumbs_settings",
+      "label": "Breadcrumbs",
+      "type": "heading"
+    },
+    {
+      "name": "breadcrumb_home",
+      "label": "Home Breadcrumb",
+      "type": "text",
+      "default": "Home"
+    },
+    {
+      "name": "breadcrumb_about",
+      "label": "About Breadcrumb",
+      "type": "text",
+      "default": "About"
+    },
+    {
+      "name": "breadcrumb_contact",
+      "label": "Contact Breadcrumb",
+      "type": "text",
+      "default": "Contact"
+    },
+    {
+      "name": "breadcrumb_dealers",
+      "label": "Dealers Breadcrumb",
+      "type": "text",
+      "default": "Dealers"
+    },
+    {
+      "name": "breadcrumb_minidumpers",
+      "label": "Mini Dumpers Breadcrumb",
+      "type": "text",
+      "default": "Mini Dumpers"
+    },
+    {
+      "name": "breadcrumb_news",
+      "label": "News Breadcrumb",
+      "type": "text",
+      "default": "News"
+    },
+    {
+      "name": "breadcrumb_faqs",
+      "label": "FAQs Breadcrumb",
+      "type": "text",
+      "default": "FAQs"
+    },
+    {
+      "name": "header_footer_settings",
+      "label": "Header & Footer",
+      "type": "heading"
+    },
+    {
+      "name": "header_contact_button",
+      "label": "Header Contact Button Text",
+      "type": "text",
+      "default": "Contact Us"
+    },
+    {
+      "name": "footer_copyright",
+      "label": "Footer Copyright Text",
+      "type": "text",
+      "default": "© 2024 CNF Mini Dumpers"
+    },
+    {
+      "name": "footer_show_words_logo",
+      "label": "Show WORDS Logo in Footer",
+      "type": "boolean",
+      "default": "1"
+    },
+    {
+      "name": "machine_filter_settings",
+      "label": "Machine Filter Labels",
+      "type": "heading"
+    },
+    {
+      "name": "filter_load_capacity_label",
+      "label": "Load Capacity Label",
+      "type": "text",
+      "default": "Load Capacity"
+    },
+    {
+      "name": "filter_track_width_label",
+      "label": "Track Width Label",
+      "type": "text",
+      "default": "Track Width"
+    },
+    {
+      "name": "filter_engine_power_label",
+      "label": "Engine Power Label",
+      "type": "text",
+      "default": "Engine Power"
+    },
+    {
+      "name": "filter_clear_button",
+      "label": "Clear Filters Button",
+      "type": "text",
+      "default": "Clear Filters"
+    }
+  ]
+}
