@@ -547,31 +547,62 @@ function cnf_get_faqs($request = null) {
 
 /**
  * Get All Dealers
+ *
+ * Falls back to native WordPress functions if Pods doesn't recognize the posts
  */
 function cnf_get_dealers($request = null) {
-    // Check if Pods is available
-    if (!function_exists('pods')) {
-        return array();
-    }
-
     try {
-        $dealers = pods('cnf_dealer', array(
-            'limit' => -1,
-            'orderby' => 'post_title ASC',
+        // First try Pods if available
+        if (function_exists('pods')) {
+            $dealers_pod = pods('cnf_dealer', array(
+                'limit' => -1,
+                'orderby' => 'post_title ASC',
+            ));
+
+            // If Pods works and has dealers, use it
+            if ($dealers_pod && $dealers_pod->total() > 0) {
+                $data = array();
+                while ($dealers_pod->fetch()) {
+                    $data[] = array(
+                        'id' => $dealers_pod->id(),
+                        'slug' => $dealers_pod->field('slug'),
+                        'title' => array('rendered' => $dealers_pod->field('post_title')),
+                        'content' => array('rendered' => $dealers_pod->field('post_content')),
+                        'pods' => $dealers_pod->export(),
+                    );
+                }
+                return $data;
+            }
+        }
+
+        // Fallback to native WordPress if Pods doesn't work
+        $posts = get_posts(array(
+            'post_type' => 'cnf_dealer',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+            'orderby' => 'title',
+            'order' => 'ASC',
         ));
 
         $data = array();
 
-        if ($dealers && $dealers->total() > 0) {
-            while ($dealers->fetch()) {
-                $data[] = array(
-                    'id' => $dealers->id(),
-                    'slug' => $dealers->field('slug'),
-                    'title' => array('rendered' => $dealers->field('post_title')),
-                    'content' => array('rendered' => $dealers->field('post_content')),
-                    'pods' => $dealers->export(),
-                );
-            }
+        foreach ($posts as $post) {
+            // Get post meta for Pods fields
+            $pods_data = array(
+                'name' => get_post_meta($post->ID, 'name', true),
+                'address' => get_post_meta($post->ID, 'address', true),
+                'sales_area' => get_post_meta($post->ID, 'sales_area', true),
+                'phone' => get_post_meta($post->ID, 'phone', true),
+                'website' => get_post_meta($post->ID, 'website', true),
+            );
+
+            $data[] = array(
+                'id' => $post->ID,
+                'slug' => $post->post_name,
+                'title' => array('rendered' => $post->post_title),
+                'content' => array('rendered' => apply_filters('the_content', $post->post_content)),
+                'pods' => $pods_data,
+            );
         }
 
         return $data;
