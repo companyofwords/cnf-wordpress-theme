@@ -52,13 +52,42 @@ function cnf_custom_admin_logo() {
             height: 32px !important;
         }
 
+        /* Login Page - Full Width Background */
+        body.login {
+            background-image: url('https://westgategroup.wpenginepowered.com/wp-content/uploads/cnf-t95-_MG_9554.webp') !important;
+            background-size: cover !important;
+            background-position: center center !important;
+            background-repeat: no-repeat !important;
+            background-attachment: fixed !important;
+            position: relative;
+        }
+
+        /* Dark overlay for better form readability */
+        body.login:before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+
+        /* Ensure login form is above overlay */
+        body.login #login {
+            position: relative;
+            z-index: 1;
+        }
+
         /* Login Page Logo */
         .login h1 a {
-            background-image: url('https://westgategroup.wpenginepowered.com/wp-content/uploads/cnf-logo-red.png') !important;
+            background-image: url('https://westgategroup.wpenginepowered.com/wp-content/uploads/cnf-logo-white.png') !important;
             background-size: contain !important;
             width: 320px !important;
             height: 120px !important;
             margin: 0 auto 25px !important;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
         }
 
         /* Admin Menu Logo (top left) - Placeholder space */
@@ -192,23 +221,48 @@ function cnf_admin_brand_colors() {
             color: var(--cnf-red-dark) !important;
         }
 
-        /* Login Form */
+        /* Login Form - Enhanced for image background */
         .login #login_error,
         .login .message,
         .login .success {
             border-left-color: var(--cnf-red) !important;
+            background: rgba(255, 255, 255, 0.98) !important;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
         }
 
         .login form {
-            border: 1px solid #ddd;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(10px);
+        }
+
+        .login label {
+            color: #333 !important;
         }
 
         .wp-core-ui .button-primary.button-hero {
             background: var(--cnf-red) !important;
             border-color: var(--cnf-red-dark) !important;
-            box-shadow: none !important;
+            box-shadow: 0 4px 12px rgba(238, 39, 66, 0.4) !important;
             text-shadow: none !important;
+        }
+
+        .wp-core-ui .button-primary.button-hero:hover {
+            box-shadow: 0 6px 16px rgba(238, 39, 66, 0.6) !important;
+            transform: translateY(-1px);
+        }
+
+        /* Login links */
+        .login #nav a,
+        .login #backtoblog a {
+            color: white !important;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+        }
+
+        .login #nav a:hover,
+        .login #backtoblog a:hover {
+            color: var(--cnf-red) !important;
         }
 
         /* Update Nag */
