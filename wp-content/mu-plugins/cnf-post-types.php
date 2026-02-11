@@ -12,6 +12,42 @@ if (!defined('ABSPATH')) {
 }
 
 /**
+ * Customize existing Pods post types (icons and labels)
+ */
+add_action('init', 'cnf_customize_pods_post_types', 999);
+
+function cnf_customize_pods_post_types() {
+    global $wp_post_types;
+
+    // Customize CNF Machine post type
+    if (isset($wp_post_types['cnf_machine'])) {
+        $wp_post_types['cnf_machine']->labels->name = 'Machines';
+        $wp_post_types['cnf_machine']->labels->singular_name = 'Machine';
+        $wp_post_types['cnf_machine']->labels->menu_name = 'Machines';
+        $wp_post_types['cnf_machine']->labels->all_items = 'All Machines';
+        $wp_post_types['cnf_machine']->menu_icon = 'dashicons-admin-tools';
+    }
+
+    // Customize CNF Use post type
+    if (isset($wp_post_types['cnf_use'])) {
+        $wp_post_types['cnf_use']->labels->name = 'Uses';
+        $wp_post_types['cnf_use']->labels->singular_name = 'Use';
+        $wp_post_types['cnf_use']->labels->menu_name = 'Uses';
+        $wp_post_types['cnf_use']->labels->all_items = 'All Uses';
+        $wp_post_types['cnf_use']->menu_icon = 'dashicons-hammer';
+    }
+
+    // Customize FAQ post type
+    if (isset($wp_post_types['faq'])) {
+        $wp_post_types['faq']->labels->name = 'FAQs';
+        $wp_post_types['faq']->labels->singular_name = 'FAQ';
+        $wp_post_types['faq']->labels->menu_name = 'FAQs';
+        $wp_post_types['faq']->labels->all_items = 'All FAQs';
+        $wp_post_types['faq']->menu_icon = 'dashicons-editor-help';
+    }
+}
+
+/**
  * Register Custom Post Types
  */
 add_action('init', 'cnf_register_post_types');
