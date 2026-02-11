@@ -27,15 +27,9 @@ function cnf_customize_pods_post_types() {
         $wp_post_types['cnf_machine']->labels->all_items = 'All Machines';
         $wp_post_types['cnf_machine']->menu_icon = 'dashicons-admin-tools';
 
-        // Ensure title field is editable
-        if (!in_array('title', $wp_post_types['cnf_machine']->supports)) {
-            $wp_post_types['cnf_machine']->supports[] = 'title';
-        }
-
-        // Enable Page Attributes (for menu_order)
-        if (!in_array('page-attributes', $wp_post_types['cnf_machine']->supports)) {
-            $wp_post_types['cnf_machine']->supports[] = 'page-attributes';
-        }
+        // Enable title and page attributes using proper WordPress function
+        add_post_type_support('cnf_machine', 'title');
+        add_post_type_support('cnf_machine', 'page-attributes');
     }
 
     // Customize CNF Use post type
