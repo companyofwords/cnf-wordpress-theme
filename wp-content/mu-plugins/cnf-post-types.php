@@ -30,6 +30,7 @@ function cnf_customize_pods_post_types() {
         // Enable title and page attributes using proper WordPress function
         add_post_type_support('cnf_machine', 'title');
         add_post_type_support('cnf_machine', 'page-attributes');
+        add_post_type_support('cnf_machine', 'thumbnail'); // Featured Image
     }
 
     // Customize CNF Use post type
