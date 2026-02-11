@@ -26,7 +26,7 @@ function cnf_custom_admin_logo() {
     <style>
         /* Admin Bar Logo */
         #wpadminbar #wp-admin-bar-wp-logo > .ab-item .ab-icon:before {
-            background-image: url('/uploads/cnf-logo-white.png') !important;
+            background-image: url('https://westgategroup.wpenginepowered.com/wp-content/uploads/cnf-logo-white.png') !important;
             background-size: contain;
             background-repeat: no-repeat;
             background-position: center;
@@ -37,7 +37,7 @@ function cnf_custom_admin_logo() {
 
         /* Login Page Logo */
         .login h1 a {
-            background-image: url('/uploads/cnf-logo-red.png') !important;
+            background-image: url('https://westgategroup.wpenginepowered.com/wp-content/uploads/cnf-logo-red.png') !important;
             background-size: contain !important;
             width: 320px !important;
             height: 120px !important;
@@ -47,7 +47,7 @@ function cnf_custom_admin_logo() {
         /* Admin Menu Logo (top left) */
         #adminmenu {
             padding-top: 80px;
-            background-image: url('/wp-content/uploads/cnf-logo-white.png');
+            background-image: url('https://westgategroup.wpenginepowered.com/wp-content/uploads/cnf-logo-white.png');
             background-size: 140px auto;
             background-repeat: no-repeat;
             background-position: center 15px;
