@@ -27,8 +27,15 @@ function cnf_customize_pods_post_types() {
         $wp_post_types['cnf_machine']->labels->all_items = 'All Machines';
         $wp_post_types['cnf_machine']->menu_icon = 'dashicons-admin-tools';
 
+        // Ensure title field is editable
+        if (!in_array('title', $wp_post_types['cnf_machine']->supports)) {
+            $wp_post_types['cnf_machine']->supports[] = 'title';
+        }
+
         // Enable Page Attributes (for menu_order)
-        $wp_post_types['cnf_machine']->supports[] = 'page-attributes';
+        if (!in_array('page-attributes', $wp_post_types['cnf_machine']->supports)) {
+            $wp_post_types['cnf_machine']->supports[] = 'page-attributes';
+        }
     }
 
     // Customize CNF Use post type
