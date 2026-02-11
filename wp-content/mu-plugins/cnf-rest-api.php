@@ -415,6 +415,46 @@ function cnf_get_theme_options_endpoint($request = null) {
 }
 
 /**
+ * Get featured image data for a post
+ * Returns array in WordPress REST API _embedded format
+ */
+function cnf_get_featured_image_data($post_id) {
+    $featured_image_id = get_post_thumbnail_id($post_id);
+
+    if (!$featured_image_id) {
+        return array();
+    }
+
+    $image_data = wp_get_attachment_image_src($featured_image_id, 'full');
+    if (!$image_data) {
+        return array();
+    }
+
+    $featured_media = array(
+        'id' => $featured_image_id,
+        'source_url' => $image_data[0],
+        'alt_text' => get_post_meta($featured_image_id, '_wp_attachment_image_alt', true),
+        'media_details' => array(
+            'width' => $image_data[1],
+            'height' => $image_data[2],
+            'sizes' => array(
+                'thumbnail' => array(
+                    'source_url' => wp_get_attachment_image_src($featured_image_id, 'thumbnail')[0] ?? '',
+                ),
+                'medium' => array(
+                    'source_url' => wp_get_attachment_image_src($featured_image_id, 'medium')[0] ?? '',
+                ),
+                'large' => array(
+                    'source_url' => wp_get_attachment_image_src($featured_image_id, 'large')[0] ?? '',
+                ),
+            ),
+        ),
+    );
+
+    return array($featured_media);
+}
+
+/**
  * Get All Machines (CNF Mini Dumpers)
  */
 function cnf_get_machines($request = null) {
@@ -439,6 +479,9 @@ function cnf_get_machines($request = null) {
                     'title' => array('rendered' => $machines->field('post_title')),
                     'content' => array('rendered' => $machines->field('post_content')),
                     'pods' => $machines->export(),
+                    '_embedded' => array(
+                        'wp:featuredmedia' => cnf_get_featured_image_data($machines->id())
+                    ),
                 );
             }
         }
@@ -479,6 +522,9 @@ function cnf_get_machine_by_slug($request) {
             'title' => array('rendered' => $machine->field('post_title')),
             'content' => array('rendered' => $machine->field('post_content')),
             'pods' => $machine->export(),
+            '_embedded' => array(
+                'wp:featuredmedia' => cnf_get_featured_image_data($machine->id())
+            ),
         );
 
         return rest_ensure_response($data);
