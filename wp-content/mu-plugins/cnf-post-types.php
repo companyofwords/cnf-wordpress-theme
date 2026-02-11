@@ -26,6 +26,9 @@ function cnf_customize_pods_post_types() {
         $wp_post_types['cnf_machine']->labels->menu_name = 'Machines';
         $wp_post_types['cnf_machine']->labels->all_items = 'All Machines';
         $wp_post_types['cnf_machine']->menu_icon = 'dashicons-admin-tools';
+
+        // Enable Page Attributes (for menu_order)
+        $wp_post_types['cnf_machine']->supports[] = 'page-attributes';
     }
 
     // Customize CNF Use post type
