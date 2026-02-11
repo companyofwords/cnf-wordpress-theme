@@ -45,16 +45,12 @@ function cnf_custom_admin_logo() {
         }
 
         /* Admin Menu Logo (top left) */
-        #adminmenu:before {
-            content: '';
-            display: block;
-            background-image: url('/uploads/CNF-logo-white.png');
-            background-size: contain;
+        #adminmenu {
+            padding-top: 80px;
+            background-image: url('/wp-content/uploads/CNF-logo-white.png');
+            background-size: 140px auto;
             background-repeat: no-repeat;
-            background-position: center;
-            width: 160px;
-            height: 60px;
-            margin: 20px auto 30px;
+            background-position: center 15px;
         }
     </style>
     <?php
@@ -127,10 +123,20 @@ function cnf_admin_brand_colors() {
             background: #1e1e1e !important;
         }
 
+        #adminmenu .wp-menu-name,
+        #adminmenu a {
+            color: rgba(240, 245, 250, 0.7) !important;
+        }
+
         #adminmenu li.menu-top:hover,
         #adminmenu li.opensub > a.menu-top,
         #adminmenu li > a.menu-top:focus {
             background: var(--cnf-charcoal) !important;
+        }
+
+        #adminmenu li.menu-top:hover .wp-menu-name,
+        #adminmenu li.menu-top:hover a {
+            color: #fff !important;
         }
 
         #adminmenu .wp-has-current-submenu .wp-submenu,
@@ -147,7 +153,8 @@ function cnf_admin_brand_colors() {
 
         #adminmenu .current a.menu-top,
         #adminmenu .wp-has-current-submenu a.wp-has-current-submenu,
-        #adminmenu li.current a.menu-top {
+        #adminmenu li.current a.menu-top,
+        #adminmenu .current .wp-menu-name {
             background: var(--cnf-red) !important;
             color: #fff !important;
         }
