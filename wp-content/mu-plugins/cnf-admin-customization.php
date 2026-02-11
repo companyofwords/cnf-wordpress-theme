@@ -21,6 +21,23 @@ if (!defined('ABSPATH')) {
 add_action('admin_head', 'cnf_custom_admin_logo');
 add_action('login_head', 'cnf_custom_admin_logo');
 
+/**
+ * Inject CNF logo into admin menu with JavaScript
+ */
+add_action('admin_footer', 'cnf_inject_admin_menu_logo');
+function cnf_inject_admin_menu_logo() {
+    ?>
+    <script>
+    jQuery(document).ready(function($) {
+        if ($('#cnf-admin-logo').length === 0) {
+            var logoHtml = '<img id="cnf-admin-logo" src="https://westgategroup.wpenginepowered.com/wp-content/uploads/cnf-logo-white.png" alt="CNF Mini Dumpers" />';
+            $('#adminmenu').prepend(logoHtml);
+        }
+    });
+    </script>
+    <?php
+}
+
 function cnf_custom_admin_logo() {
     ?>
     <style>
@@ -44,13 +61,18 @@ function cnf_custom_admin_logo() {
             margin: 0 auto 25px !important;
         }
 
-        /* Admin Menu Logo (top left) */
+        /* Admin Menu Logo (top left) - Placeholder space */
+        #cnf-admin-logo {
+            display: block;
+            width: 160px;
+            max-width: 90%;
+            height: auto;
+            margin: 15px auto 25px;
+            padding: 0 10px;
+        }
+
         #adminmenu {
-            padding-top: 80px;
-            background-image: url('https://westgategroup.wpenginepowered.com/wp-content/uploads/cnf-logo-white.png');
-            background-size: 140px auto;
-            background-repeat: no-repeat;
-            background-position: center 15px;
+            padding-top: 10px;
         }
     </style>
     <?php
