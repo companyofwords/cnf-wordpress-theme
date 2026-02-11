@@ -178,6 +178,13 @@ function cnf_get_bootstrap_data($request = null) {
         $data['pods']['cnf_dealers'] = array();
     }
 
+    try {
+        $data['pods']['cnf_promotions'] = cnf_get_promotions();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap: Failed to get promotions - ' . $e->getMessage());
+        $data['pods']['cnf_promotions'] = array();
+    }
+
     // Get posts (with error handling)
     try {
         $data['posts'] = cnf_get_news_posts();
@@ -259,6 +266,13 @@ function cnf_get_bootstrap_data_fresh($request = null) {
     } catch (Exception $e) {
         error_log('CNF Bootstrap Fresh: Failed to get dealers - ' . $e->getMessage());
         $data['pods']['cnf_dealers'] = array();
+    }
+
+    try {
+        $data['pods']['cnf_promotions'] = cnf_get_promotions();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap Fresh: Failed to get promotions - ' . $e->getMessage());
+        $data['pods']['cnf_promotions'] = array();
     }
 
     // Get posts (with error handling)
@@ -613,6 +627,72 @@ function cnf_get_dealers($request = null) {
 }
 
 /**
+ * Get All Promotions
+ *
+ * Falls back to native WordPress functions if Pods doesn't recognize the posts
+ */
+function cnf_get_promotions($request = null) {
+    try {
+        // First try Pods if available
+        if (function_exists('pods')) {
+            $promotions_pod = pods('cnf_promotion', array(
+                'limit' => -1,
+                'orderby' => 'menu_order ASC',
+            ));
+
+            // If Pods works and has promotions, use it
+            if ($promotions_pod && $promotions_pod->total() > 0) {
+                $data = array();
+                while ($promotions_pod->fetch()) {
+                    $data[] = array(
+                        'id' => $promotions_pod->id(),
+                        'slug' => $promotions_pod->field('slug'),
+                        'title' => array('rendered' => $promotions_pod->field('post_title')),
+                        'content' => array('rendered' => $promotions_pod->field('post_content')),
+                        'pods' => $promotions_pod->export(),
+                    );
+                }
+                return $data;
+            }
+        }
+
+        // Fallback to native WordPress if Pods doesn't work
+        $posts = get_posts(array(
+            'post_type' => 'cnf_promotion',
+            'posts_per_page' => -1,
+            'post_status' => 'publish',
+            'orderby' => 'menu_order',
+            'order' => 'ASC',
+        ));
+
+        $data = array();
+
+        foreach ($posts as $post) {
+            // Get post meta for Pods fields
+            $pods_data = array(
+                'title' => get_post_meta($post->ID, 'title', true) ?: $post->post_title,
+                'description' => get_post_meta($post->ID, 'description', true) ?: $post->post_content,
+                'icon_name' => get_post_meta($post->ID, 'icon_name', true),
+                'background_image' => get_post_meta($post->ID, 'background_image', true),
+            );
+
+            $data[] = array(
+                'id' => $post->ID,
+                'slug' => $post->post_name,
+                'title' => array('rendered' => $post->post_title),
+                'content' => array('rendered' => apply_filters('the_content', $post->post_content)),
+                'pods' => $pods_data,
+            );
+        }
+
+        return $data;
+    } catch (Exception $e) {
+        error_log('CNF REST API: Failed to get promotions - ' . $e->getMessage());
+        return array();
+    }
+}
+
+/**
  * Get News Posts
  */
 function cnf_get_news_posts($request = null) {
@@ -725,6 +805,13 @@ function cnf_get_bootstrap_data_v2($request = null) {
     } catch (Exception $e) {
         error_log('CNF Bootstrap V2: Failed to get dealers - ' . $e->getMessage());
         $data['pods']['cnf_dealers'] = array();
+    }
+
+    try {
+        $data['pods']['cnf_promotions'] = cnf_get_promotions();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap V2: Failed to get promotions - ' . $e->getMessage());
+        $data['pods']['cnf_promotions'] = array();
     }
 
     // Get posts (with error handling)
