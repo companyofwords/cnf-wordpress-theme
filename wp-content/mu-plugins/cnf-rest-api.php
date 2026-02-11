@@ -38,6 +38,24 @@ add_action('rest_api_init', function() {
     ));
 
     // ========================================================================
+    // Bootstrap-Fresh Endpoint - Bypasses WP Engine cache with timestamp
+    // ========================================================================
+    register_rest_route('cnf/v1', '/bootstrap-fresh', array(
+        'methods' => 'GET',
+        'callback' => 'cnf_get_bootstrap_data_fresh',
+        'permission_callback' => '__return_true', // Public endpoint
+    ));
+
+    // ========================================================================
+    // Bootstrap V2 Endpoint - New endpoint to bypass cache
+    // ========================================================================
+    register_rest_route('cnf/v1', '/bootstrap-v2', array(
+        'methods' => 'GET',
+        'callback' => 'cnf_get_bootstrap_data_v2',
+        'permission_callback' => '__return_true', // Public endpoint
+    ));
+
+    // ========================================================================
     // Theme Options Endpoint - Get all theme options (178 fields)
     // ========================================================================
     register_rest_route('cnf/v1', '/theme-options', array(
@@ -95,7 +113,8 @@ add_action('rest_api_init', function() {
  *
  * Returns all data needed for site initialization
  */
-function cnf_get_bootstrap_data() {
+function cnf_get_bootstrap_data($request = null) {
+    // Build data array with error handling
     $data = array(
         'site' => array(
             'title' => get_bloginfo('name'),
@@ -103,15 +122,159 @@ function cnf_get_bootstrap_data() {
             'url' => get_site_url(),
             'email' => get_option('admin_email'),
         ),
-        'menus' => cnf_get_menus(),
-        'pages' => cnf_get_pages(),
-        'options' => cnf_get_theme_options(),
-        'pods' => array(
-            'cnf_machines' => cnf_get_machines(),
-            'cnf_uses' => cnf_get_uses(),
-            'faqs' => cnf_get_faqs(),
+    );
+
+    // Get menus (with error handling)
+    try {
+        $data['menus'] = cnf_get_menus();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap: Failed to get menus - ' . $e->getMessage());
+        $data['menus'] = array();
+    }
+
+    // Get pages (with error handling)
+    try {
+        $data['pages'] = cnf_get_pages();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap: Failed to get pages - ' . $e->getMessage());
+        $data['pages'] = array();
+    }
+
+    // Get theme options (with error handling)
+    try {
+        $data['options'] = cnf_get_theme_options();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap: Failed to get theme options - ' . $e->getMessage());
+        $data['options'] = array();
+    }
+
+    // Get Pods data (with error handling)
+    $data['pods'] = array();
+    try {
+        $data['pods']['cnf_machines'] = cnf_get_machines();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap: Failed to get machines - ' . $e->getMessage());
+        $data['pods']['cnf_machines'] = array();
+    }
+
+    try {
+        $data['pods']['cnf_uses'] = cnf_get_uses();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap: Failed to get uses - ' . $e->getMessage());
+        $data['pods']['cnf_uses'] = array();
+    }
+
+    try {
+        $data['pods']['faqs'] = cnf_get_faqs();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap: Failed to get FAQs - ' . $e->getMessage());
+        $data['pods']['faqs'] = array();
+    }
+
+    try {
+        $data['pods']['cnf_dealers'] = cnf_get_dealers();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap: Failed to get dealers - ' . $e->getMessage());
+        $data['pods']['cnf_dealers'] = array();
+    }
+
+    // Get posts (with error handling)
+    try {
+        $data['posts'] = cnf_get_news_posts();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap: Failed to get posts - ' . $e->getMessage());
+        $data['posts'] = array();
+    }
+
+    return rest_ensure_response($data);
+}
+
+/**
+ * Get Bootstrap Data (Fresh - Bypasses WP Engine Cache)
+ *
+ * Same as cnf_get_bootstrap_data() but with timestamp to force new cache key
+ */
+function cnf_get_bootstrap_data_fresh($request = null) {
+    // Build data array with error handling
+    $data = array(
+        'site' => array(
+            'title' => get_bloginfo('name'),
+            'description' => get_bloginfo('description'),
+            'url' => get_site_url(),
+            'email' => get_option('admin_email'),
         ),
-        'posts' => cnf_get_news_posts(),
+    );
+
+    // Get menus (with error handling)
+    try {
+        $data['menus'] = cnf_get_menus();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap Fresh: Failed to get menus - ' . $e->getMessage());
+        $data['menus'] = array();
+    }
+
+    // Get pages (with error handling)
+    try {
+        $data['pages'] = cnf_get_pages();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap Fresh: Failed to get pages - ' . $e->getMessage());
+        $data['pages'] = array();
+    }
+
+    // Get theme options (with error handling)
+    $options_count = 0;
+    try {
+        $data['options'] = cnf_get_theme_options();
+        $options_count = count($data['options']);
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap Fresh: Failed to get theme options - ' . $e->getMessage());
+        $data['options'] = array();
+    }
+
+    // Get Pods data (with error handling)
+    $data['pods'] = array();
+    try {
+        $data['pods']['cnf_machines'] = cnf_get_machines();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap Fresh: Failed to get machines - ' . $e->getMessage());
+        $data['pods']['cnf_machines'] = array();
+    }
+
+    try {
+        $data['pods']['cnf_uses'] = cnf_get_uses();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap Fresh: Failed to get uses - ' . $e->getMessage());
+        $data['pods']['cnf_uses'] = array();
+    }
+
+    try {
+        $data['pods']['faqs'] = cnf_get_faqs();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap Fresh: Failed to get FAQs - ' . $e->getMessage());
+        $data['pods']['faqs'] = array();
+    }
+
+    try {
+        $data['pods']['cnf_dealers'] = cnf_get_dealers();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap Fresh: Failed to get dealers - ' . $e->getMessage());
+        $data['pods']['cnf_dealers'] = array();
+    }
+
+    // Get posts (with error handling)
+    try {
+        $data['posts'] = cnf_get_news_posts();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap Fresh: Failed to get posts - ' . $e->getMessage());
+        $data['posts'] = array();
+    }
+
+    // Add debug info
+    $data['_debug'] = array(
+        'endpoint' => 'bootstrap-fresh',
+        'timestamp' => time(),
+        'options_count' => $options_count,
+        'cache_headers' => 'aggressive',
     );
 
     return rest_ensure_response($data);
@@ -120,7 +283,7 @@ function cnf_get_bootstrap_data() {
 /**
  * Get All Menus
  */
-function cnf_get_menus() {
+function cnf_get_menus($request = null) {
     $menus = array();
 
     // Get primary menu
@@ -162,7 +325,7 @@ function cnf_format_menu_items($menu_items) {
 /**
  * Get All Pages
  */
-function cnf_get_pages() {
+function cnf_get_pages($request = null) {
     $pages = get_posts(array(
         'post_type' => 'page',
         'posts_per_page' => -1,
@@ -233,14 +396,14 @@ function cnf_get_theme_options() {
  * Theme Options REST API Endpoint Handler
  * Wraps cnf_get_theme_options() in REST response for direct endpoint access
  */
-function cnf_get_theme_options_endpoint() {
+function cnf_get_theme_options_endpoint($request = null) {
     return rest_ensure_response(cnf_get_theme_options());
 }
 
 /**
  * Get All Machines (CNF Mini Dumpers)
  */
-function cnf_get_machines() {
+function cnf_get_machines($request = null) {
     // Check if Pods is available
     if (!function_exists('pods')) {
         return array();
@@ -314,7 +477,7 @@ function cnf_get_machine_by_slug($request) {
 /**
  * Get All Uses/Applications
  */
-function cnf_get_uses() {
+function cnf_get_uses($request = null) {
     // Check if Pods is available
     if (!function_exists('pods')) {
         return array();
@@ -350,7 +513,7 @@ function cnf_get_uses() {
 /**
  * Get All FAQs
  */
-function cnf_get_faqs() {
+function cnf_get_faqs($request = null) {
     // Check if Pods is available
     if (!function_exists('pods')) {
         return array();
@@ -383,9 +546,45 @@ function cnf_get_faqs() {
 }
 
 /**
+ * Get All Dealers
+ */
+function cnf_get_dealers($request = null) {
+    // Check if Pods is available
+    if (!function_exists('pods')) {
+        return array();
+    }
+
+    try {
+        $dealers = pods('cnf_dealer', array(
+            'limit' => -1,
+            'orderby' => 'post_title ASC',
+        ));
+
+        $data = array();
+
+        if ($dealers && $dealers->total() > 0) {
+            while ($dealers->fetch()) {
+                $data[] = array(
+                    'id' => $dealers->id(),
+                    'slug' => $dealers->field('slug'),
+                    'title' => array('rendered' => $dealers->field('post_title')),
+                    'content' => array('rendered' => $dealers->field('post_content')),
+                    'pods' => $dealers->export(),
+                );
+            }
+        }
+
+        return $data;
+    } catch (Exception $e) {
+        error_log('CNF REST API: Failed to get dealers - ' . $e->getMessage());
+        return array();
+    }
+}
+
+/**
  * Get News Posts
  */
-function cnf_get_news_posts() {
+function cnf_get_news_posts($request = null) {
     $posts = get_posts(array(
         'post_type' => 'post',
         'posts_per_page' => -1,
@@ -424,3 +623,113 @@ function cnf_get_news_posts() {
 
     return $data;
 }
+
+/**
+ * Get Bootstrap Data V2 - Completely new endpoint to bypass cache
+ *
+ * Same as bootstrap but with a new route name to avoid cached errors
+ */
+function cnf_get_bootstrap_data_v2($request = null) {
+    // Build data array with error handling
+    $data = array(
+        'site' => array(
+            'title' => get_bloginfo('name'),
+            'description' => get_bloginfo('description'),
+            'url' => get_site_url(),
+            'email' => get_option('admin_email'),
+        ),
+    );
+
+    // Get menus (with error handling)
+    try {
+        $data['menus'] = cnf_get_menus();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap V2: Failed to get menus - ' . $e->getMessage());
+        $data['menus'] = array();
+    }
+
+    // Get pages (with error handling)
+    try {
+        $data['pages'] = cnf_get_pages();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap V2: Failed to get pages - ' . $e->getMessage());
+        $data['pages'] = array();
+    }
+
+    // Get theme options (with error handling)
+    $options_count = 0;
+    try {
+        $data['options'] = cnf_get_theme_options();
+        $options_count = count($data['options']);
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap V2: Failed to get theme options - ' . $e->getMessage());
+        $data['options'] = array();
+    }
+
+    // Get Pods data (with error handling)
+    $data['pods'] = array();
+    try {
+        $data['pods']['cnf_machines'] = cnf_get_machines();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap V2: Failed to get machines - ' . $e->getMessage());
+        $data['pods']['cnf_machines'] = array();
+    }
+
+    try {
+        $data['pods']['cnf_uses'] = cnf_get_uses();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap V2: Failed to get uses - ' . $e->getMessage());
+        $data['pods']['cnf_uses'] = array();
+    }
+
+    try {
+        $data['pods']['faqs'] = cnf_get_faqs();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap V2: Failed to get FAQs - ' . $e->getMessage());
+        $data['pods']['faqs'] = array();
+    }
+
+    try {
+        $data['pods']['cnf_dealers'] = cnf_get_dealers();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap V2: Failed to get dealers - ' . $e->getMessage());
+        $data['pods']['cnf_dealers'] = array();
+    }
+
+    // Get posts (with error handling)
+    try {
+        $data['posts'] = cnf_get_news_posts();
+    } catch (Exception $e) {
+        error_log('CNF Bootstrap V2: Failed to get posts - ' . $e->getMessage());
+        $data['posts'] = array();
+    }
+
+    // Add debug info
+    $data['_debug'] = array(
+        'endpoint' => 'bootstrap-v2',
+        'timestamp' => time(),
+        'options_count' => $options_count,
+        'version' => '2.0',
+    );
+
+    return rest_ensure_response($data);
+}
+
+/**
+ * Add no-cache headers to bootstrap endpoints
+ */
+add_filter('rest_post_dispatch', function($result, $server, $request) {
+    $route = $request->get_route();
+
+    // Apply aggressive headers to fresh/v2 endpoints
+    if ($route === '/cnf/v1/bootstrap-fresh' || $route === '/cnf/v1/bootstrap-v2') {
+        $server->send_header('Cache-Control', 'no-cache, no-store, must-revalidate, max-age=0, private');
+        $server->send_header('Pragma', 'no-cache');
+        $server->send_header('Expires', '0');
+        $server->send_header('X-CNF-Cache', 'disabled');
+        $server->send_header('X-CNF-Fresh', 'true');
+        $server->send_header('X-CNF-Timestamp', time());
+    }
+
+    return $result;
+}, 10, 3);
