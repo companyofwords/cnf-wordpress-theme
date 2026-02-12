@@ -149,6 +149,12 @@
           "help": "Background color for display"
         },
         {
+          "name": "floating_stats",
+          "label": "Floating Stats & CTAs",
+          "type": "paragraph",
+          "help": "JSON array of floating statistics and call-to-action buttons. Example: [{\"type\":\"link\",\"text\":\"HIRE ME\",\"href\":\"https://example.com\",\"external\":true,\"position\":\"bottom-right\",\"bg_color\":\"red\",\"delay\":1.2}]"
+        },
+        {
           "name": "next_section_id",
           "label": "Next Section ID",
           "type": "text",

@@ -473,12 +473,22 @@ function cnf_get_machines($request = null) {
 
         if ($machines && $machines->total() > 0) {
             while ($machines->fetch()) {
+                $pods_data = $machines->export();
+
+                // Parse floating_stats JSON if present
+                if (!empty($pods_data['floating_stats'])) {
+                    $decoded = json_decode($pods_data['floating_stats'], true);
+                    if (json_last_error() === JSON_ERROR_NONE) {
+                        $pods_data['floating_stats'] = $decoded;
+                    }
+                }
+
                 $data[] = array(
                     'id' => $machines->id(),
                     'slug' => $machines->field('slug'),
                     'title' => array('rendered' => $machines->field('post_title')),
                     'content' => array('rendered' => $machines->field('post_content')),
-                    'pods' => $machines->export(),
+                    'pods' => $pods_data,
                     '_embedded' => array(
                         'wp:featuredmedia' => cnf_get_featured_image_data($machines->id())
                     ),
@@ -516,12 +526,22 @@ function cnf_get_machine_by_slug($request) {
 
         $machine->fetch();
 
+        $pods_data = $machine->export();
+
+        // Parse floating_stats JSON if present
+        if (!empty($pods_data['floating_stats'])) {
+            $decoded = json_decode($pods_data['floating_stats'], true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                $pods_data['floating_stats'] = $decoded;
+            }
+        }
+
         $data = array(
             'id' => $machine->id(),
             'slug' => $machine->field('slug'),
             'title' => array('rendered' => $machine->field('post_title')),
             'content' => array('rendered' => $machine->field('post_content')),
-            'pods' => $machine->export(),
+            'pods' => $pods_data,
             '_embedded' => array(
                 'wp:featuredmedia' => cnf_get_featured_image_data($machine->id())
             ),
