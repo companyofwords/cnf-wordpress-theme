@@ -123,6 +123,12 @@
           "help": "Numeric width for filtering"
         },
         {
+          "name": "capacity_kg",
+          "label": "Load Capacity (kg)",
+          "type": "number",
+          "help": "Numeric load capacity for filtering (e.g., 500, 700, 950, 1500)"
+        },
+        {
           "name": "actions",
           "label": "Machine Actions",
           "type": "pick",
@@ -165,6 +171,12 @@
           "label": "Marketing Title (Alt)",
           "type": "text",
           "help": "Alternative marketing title field"
+        },
+        {
+          "name": "hero_stats",
+          "label": "Hero Section Stats & Actions",
+          "type": "paragraph",
+          "help": "JSON array for hero section displays (weight badges, action icons). Example: [{\"type\":\"stat\",\"stat\":{\"value\":\"500kg\",\"label\":\"WEIGHT\"},\"position\":\"top-right\",\"bg_color\":\"red\",\"delay\":0.8},{\"type\":\"action\",\"action\":{\"name\":\"HIGH TIP\",\"icon_white\":\"/icons/high-tip-white.svg\",\"icon_black\":\"/icons/high-tip-black.svg\"},\"position\":\"inner-top-right\",\"bg_color\":\"charcoal\",\"delay\":1.0}]"
         },
         {
           "name": "next_section_id",

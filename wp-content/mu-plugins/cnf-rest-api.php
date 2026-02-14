@@ -483,6 +483,14 @@ function cnf_get_machines($request = null) {
                     }
                 }
 
+                // Parse hero_stats JSON if present
+                if (!empty($pods_data['hero_stats'])) {
+                    $decoded = json_decode($pods_data['hero_stats'], true);
+                    if (json_last_error() === JSON_ERROR_NONE) {
+                        $pods_data['hero_stats'] = $decoded;
+                    }
+                }
+
                 $data[] = array(
                     'id' => $machines->id(),
                     'slug' => $machines->field('slug'),
@@ -533,6 +541,14 @@ function cnf_get_machine_by_slug($request) {
             $decoded = json_decode($pods_data['floating_stats'], true);
             if (json_last_error() === JSON_ERROR_NONE) {
                 $pods_data['floating_stats'] = $decoded;
+            }
+        }
+
+        // Parse hero_stats JSON if present
+        if (!empty($pods_data['hero_stats'])) {
+            $decoded = json_decode($pods_data['hero_stats'], true);
+            if (json_last_error() === JSON_ERROR_NONE) {
+                $pods_data['hero_stats'] = $decoded;
             }
         }
 
