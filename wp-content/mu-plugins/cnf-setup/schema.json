@@ -155,6 +155,18 @@
           "help": "JSON array of floating statistics and call-to-action buttons. Example: [{\"type\":\"link\",\"text\":\"HIRE ME\",\"href\":\"https://example.com\",\"external\":true,\"position\":\"bottom-right\",\"bg_color\":\"red\",\"delay\":1.2}]"
         },
         {
+          "name": "model",
+          "label": "Model",
+          "type": "text",
+          "help": "Machine model identifier (e.g., T50, T70, T95, T150)"
+        },
+        {
+          "name": "marketing_title",
+          "label": "Marketing Title (Alt)",
+          "type": "text",
+          "help": "Alternative marketing title field"
+        },
+        {
           "name": "next_section_id",
           "label": "Next Section ID",
           "type": "text",
