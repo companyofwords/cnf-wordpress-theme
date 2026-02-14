@@ -156,9 +156,23 @@
         },
         {
           "name": "floating_stats",
-          "label": "Floating Stats & CTAs",
+          "label": "Floating Stats & CTAs (Advanced - JSON)",
           "type": "paragraph",
-          "help": "JSON array of floating statistics and call-to-action buttons. Example: [{\"type\":\"link\",\"text\":\"HIRE ME\",\"href\":\"https://example.com\",\"external\":true,\"position\":\"bottom-right\",\"bg_color\":\"red\",\"delay\":1.2}]"
+          "help": "Advanced: JSON array for custom buttons. Leave empty to use simple checkboxes below."
+        },
+        {
+          "name": "show_hire_me_button",
+          "label": "Show 'HIRE ME' Button",
+          "type": "boolean",
+          "default": "1",
+          "help": "Display HIRE ME button linking to FastHire UK"
+        },
+        {
+          "name": "show_buy_me_button",
+          "label": "Show 'BUY ME' Button",
+          "type": "boolean",
+          "default": "1",
+          "help": "Display BUY ME button linking to Parkway Plant Sales"
         },
         {
           "name": "model",
