@@ -185,6 +185,14 @@
           "help": "YouTube or video URL"
         },
         {
+          "name": "gallery_images",
+          "label": "Gallery Images",
+          "type": "file",
+          "file_format_type": "multi",
+          "file_type": "images",
+          "help": "Multiple images for gallery display"
+        },
+        {
           "name": "diagram",
           "label": "Technical Diagram",
           "type": "file",
