@@ -768,30 +768,45 @@
           "name": "about_history_image",
           "label": "History Section Image",
           "type": "file",
+          "file_format_type": "single",
+          "file_uploader": "attachment",
+          "file_type": "images",
           "help": "Image for 'Our Story' section on About page"
         },
         {
           "name": "about_values_image",
           "label": "Values Section Image",
           "type": "file",
+          "file_format_type": "single",
+          "file_uploader": "attachment",
+          "file_type": "images",
           "help": "Image for 'Our Values' section on About page"
         },
         {
           "name": "about_quality_image",
           "label": "Quality Section Image",
           "type": "file",
+          "file_format_type": "single",
+          "file_uploader": "attachment",
+          "file_type": "images",
           "help": "Image for 'Quality Promise' section on About page"
         },
         {
           "name": "about_products_image",
           "label": "Products Section Image",
           "type": "file",
+          "file_format_type": "single",
+          "file_uploader": "attachment",
+          "file_type": "images",
           "help": "Image for 'Our Products' section on About page"
         },
         {
           "name": "about_innovation_image",
           "label": "Innovation Section Image",
           "type": "file",
+          "file_format_type": "single",
+          "file_uploader": "attachment",
+          "file_type": "images",
           "help": "Image for 'Innovation' section on About page"
         },
         {
